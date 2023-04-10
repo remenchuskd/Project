@@ -19,7 +19,7 @@ export default function Button({color, outlined, text}) {
   return (
     <button
       className={
-        outlined ? `Button ${buttonClassName} Button_outlined ` : `Button ${buttonClassName}`
+        outlined ? `${styles.Button} ${buttonClassName} ${styles.Button_outlined} ` : `${styles.Button} ${buttonClassName}`
       }
     >
       {text}

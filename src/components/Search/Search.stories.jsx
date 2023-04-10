@@ -17,6 +17,6 @@ export const Default = ({ text }) => {
     return isSearch;
   }
   return (
-    <Search text={"What do you want to learn?" || text} onChange={whatSearch} />
+    <Search text={ text || "What do you want to learn?"} onChange={whatSearch} />
   );
 };

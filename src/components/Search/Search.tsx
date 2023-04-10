@@ -1,6 +1,6 @@
 import styles from "./Search.module.css";
 import React from "react";
-import Icon from "../Icon/icon";
+import Icon from "../Icon/Icon";
 
 export default function Search({ onChange, text }) {
   let [isSearch, setIsSearch] = React.useState("");
@@ -19,7 +19,7 @@ export default function Search({ onChange, text }) {
         onChange={(e) => setIsSearch(e.target.value)}
       />
       <span className={styles.Search__icon}>
-        <Icon type={'search'}/>
+        <Icon hoverable={true} type={"search"} />
       </span>
     </div>
   );

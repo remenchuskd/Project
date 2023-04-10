@@ -18,20 +18,18 @@
   border: 2px solid #6440fb;
 }
 
-
-
 .Button.Button_color_green:not(.Button_outlined) {
-  background-color: #00FF84;
+  background-color: #00ff84;
 }
 
 .Button.Button_color_green.Button_outlined {
-  border: 2px solid #00FF84;
+  border: 2px solid #00ff84;
 }
 
 .Button.Button_color_darkblue:not(.Button_outlined) {
-  background-color: #1A064F;
+  background-color: #1a064f;
 }
 
 .Button.Button_color_darkblue.Button_outlined {
-  border: 2px solid #1A064F;
+  border: 2px solid #1a064f;
 }

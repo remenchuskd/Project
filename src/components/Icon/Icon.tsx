@@ -1,13 +1,14 @@
 import React from "react";
-import styles from './icon.module.css'
+import styles from './Icon.module.css'
 
-export default function Icon({ type }) {
+export default function Icon({ type,hoverable }) {
   let result;
+  let iconHoverableClass=hoverable?styles.icon_hoverable: '';
 
   switch (type) {
     case "cart":
       result = (
-        <span className={styles.icon_cart}>
+        <span className={`${styles.icon} ${iconHoverableClass} `}>
           <svg
             width="20"
             height="21"
@@ -29,7 +30,7 @@ export default function Icon({ type }) {
       break;
     case "search":
       result = (
-        <span className={styles.icon_search}>
+        <span className={`${styles.icon} ${iconHoverableClass} `}>
           <svg
             width="20"
             height="20"
@@ -54,7 +55,10 @@ export default function Icon({ type }) {
           </svg>
         </span>
       );
+      break;
+    default :
+        result=<span></span>
   }
 
-  return(<>{result}</>) ;
+  return result ;
 }
