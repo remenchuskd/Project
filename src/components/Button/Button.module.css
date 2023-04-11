@@ -1,6 +1,8 @@
 .Button {
   box-sizing: border-box;
-  padding: 21px 55px;
+  padding: 12px 44px;
+  display: flex;
+  align-items: center;
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;

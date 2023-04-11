@@ -1,16 +1,13 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import Button from "@/components/Button/Button";
-import Search from "@/components/Search/Search";
-import React from "react";
-
-const inter = Inter({ subsets: ["latin"] });
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import styles from '@/styles/Home.module.css';
+import Button from '@/components/Button/Button';
+import Search from '@/components/Search/Search';
+import React from 'react';
 
 export default function Home() {
-
-  let [isSearch, setIsSearch] = React.useState("");
+  let [isSearch, setIsSearch] = React.useState('');
 
   function whatSearch(ev: string) {
     setIsSearch(ev);
@@ -20,11 +17,9 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <Button text={'Привет'} color={'green'} outlined={true}  />
-        <div>
-          ________________
-        </div>
-        <Search text={'Введите текст'} onChange={whatSearch}/>
+        <Button text={'Привет'} color={'green'} outlined={true} />
+        <div>________________</div>
+        <Search text={'Введите текст'} onChange={whatSearch} />
       </main>
     </>
   );

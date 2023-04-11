@@ -1,22 +1,52 @@
-import Button from "./Button";
-import React from "react";
+import Button from './Button';
+import React from 'react';
 
 export default {
-  title: "Components/Button",
+  title: 'Components/Button',
   component: Button,
   argTypes: {
-    color: { control: "text" },
-    text: { control: "text" },
-    outlined: { control: "boolean" },
+    color: { control: 'radio', options: ['blue', 'darkblue', 'green'] },
+    text: { control: 'text' },
+    outlined: { control: 'boolean' },
   },
 };
 
-export const Default = ({ text, transparent, color }) => {
+export const Default = ({ text, outlined, color }) => {
   return (
     <Button
-      text={text || "текст"}
-      outlined={transparent || true}
-      color={color || "blue"}
+      text={text || 'текст'}
+      outlined={outlined || false}
+      color={color || 'blue'}
+    />
+  );
+};
+
+export const Blue = ({ text, outlined }) => {
+  return (
+    <Button
+      text={text || 'текст'}
+      outlined={outlined || false}
+      color={'blue'}
+    />
+  );
+};
+
+export const Green = ({ text, outlined }) => {
+  return (
+    <Button
+      text={text || 'текст'}
+      outlined={outlined || false}
+      color={'green'}
+    />
+  );
+};
+
+export const DarkBlue = ({ text, outlined }) => {
+  return (
+    <Button
+      text={text || 'текст'}
+      outlined={outlined || false}
+      color={'darkblue'}
     />
   );
 };
