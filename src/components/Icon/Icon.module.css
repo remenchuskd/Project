@@ -1,0 +1,7 @@
+.icon {
+  cursor: pointer;
+}
+
+.icon_hoverable:hover svg path {
+  stroke: black;
+}
