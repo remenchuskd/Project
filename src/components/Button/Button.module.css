@@ -8,32 +8,45 @@
   line-height: 18px;
   border-radius: 8px;
   background-color: white;
-  border: 1px solid black;
+  border: none;
+  color: #140342;
+  cursor: pointer;
+}
+
+.Button.Button_radius{
+  border-radius: 60px;
 }
 
 .Button_color_blue {
   background-color: #6440fb;
+  color: #FFFFFF;
+
 }
 
 .Button_color_blue.Button_outlined {
   background-color: white;
   border: 2px solid #6440fb;
+  color: #6440FB;
 }
 
 .Button_color_green {
   background-color: #00ff84;
+  color: #1A064F;
 }
 
 .Button_color_green.Button_outlined {
   background-color: white;
   border: 2px solid #00ff84;
+  color: #00FF84;
 }
 
 .Button_color_darkblue {
   background-color: #1a064f;
+  color: #FFFFFF;
 }
 
 .Button_color_darkblue.Button_outlined {
   background-color: white;
   border: 2px solid #1a064f;
+  color: #1A064F;
 }
