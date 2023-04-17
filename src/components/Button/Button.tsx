@@ -1,8 +1,14 @@
 import styles from "./Button.module.css";
 import React from "react";
 import Icon from "../Icon/Icon";
+type Props={
+  color?:string,
+  outlined?:boolean,
+  text:string,
+  radius?:boolean
+}
 
-export default function Button({ color, outlined, text, radius }) {
+export default function Button({ color, outlined, text, radius }:Props) {
   let buttonColorClass;
   let buttonOutlinedClass = outlined ? styles.Button_outlined : "";
   let buttonRadiusClass = radius ? styles.Button_radius : "";

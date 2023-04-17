@@ -1,8 +1,12 @@
 import styles from './Search.module.css';
 import React from 'react';
 import Icon from '../Icon/Icon';
+type Props={
+  onChange:Function,
+  text:string,
+}
 
-export default function Search({ onChange, text }) {
+export default function Search({ onChange, text }:Props) {
   let [isSearch, setIsSearch] = React.useState('');
 
   React.useEffect(() => {

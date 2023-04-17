@@ -32,16 +32,17 @@ export default function Header() {
         <div className={style.Header__border}></div>
 
         <div className={style.Header__menu}>
-        <div className={style.Header__nav}>
-            <Link className={style.Header__link} href="/">
+          <div className={style.Header__nav}>
+            <Link
+              className={`${style.Header__link} ${style.Header__navElement}`}
+              href="/"
+            >
               Home
             </Link>
           </div>
           <div className={`${style.Header__nav} ${style.Courses}`}>
-            <div className={style.Header__navElement}>
-              Courses
-            </div>
-            <span>
+            <div className={style.Header__navElement}>Courses</div>
+            <span className={style.Header__dropdown_svg}>
               <svg
                 width="9"
                 height="6"
@@ -55,15 +56,15 @@ export default function Header() {
                 />
               </svg>
             </span>
-            <div className={`${style.Header__dropdownCourses} ${style.Header__dropdown}`}>
-                <Dropdown/>
+            <div
+              className={`${style.Header__dropdownCourses} ${style.Header__dropdown}`}
+            >
+              <Dropdown vertical={false} />
             </div>
           </div>
           <div className={`${style.Header__nav} ${style.Pages}`}>
-            <div className={style.Header__navElement} >
-              Pages
-            </div>
-            <span>
+            <div className={style.Header__navElement}>Pages</div>
+            <span className={style.Header__dropdown_svg}>
               <svg
                 width="9"
                 height="6"
@@ -77,9 +78,14 @@ export default function Header() {
                 />
               </svg>
             </span>
+            <div
+              className={`${style.Header__dropdownPages} ${style.Header__dropdown}`}
+            >
+              <Dropdown vertical={false} />
+            </div>
           </div>
           <div className={style.Header__nav}>
-            <Link className={style.Header__link} href="/contacts">
+            <Link className={`${style.Header__link} ${style.Header__navElement}`} href="/contacts">
               Contacts
             </Link>
           </div>

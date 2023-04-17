@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./Icon.module.css";
+type Props={
+  type:string,
+  hoverable?: boolean,
+}
 
-export default function Icon({ type, hoverable }) {
+export default function Icon({ type, hoverable }:Props) {
+  // (props: Props )
   let result;
   let iconHoverableClass = hoverable ? styles.icon_hoverable : "";
 
@@ -57,7 +62,7 @@ export default function Icon({ type, hoverable }) {
       );
       break;
     case "logo":
-      result = <img src="../images/logo.png" alt="" />;
+      result = <img src='/logo.png' alt="logo" />;
       break;
     default:
       result = <span></span>;
