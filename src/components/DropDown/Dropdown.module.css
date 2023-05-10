@@ -7,6 +7,7 @@
   box-shadow: 0px 25px 70px rgba(1, 33, 58, 0.07);
   border-radius: 8px;
   z-index: 10;
+  cursor: default;
 }
 
 .Dropdown.vertical {
@@ -17,23 +18,31 @@
   background: #ffffff;
   box-shadow: 0px 25px 70px rgba(1, 33, 58, 0.07);
   border-radius: 8px;
+  cursor: pointer;
 }
 
-.Dropdown__column.vertical{
-    box-sizing: border-box;
-    padding-right: 30px;
-}
+.Dropdown__column.vertical {
+  box-sizing: border-box;
+  padding-right: 30px;
 
-
-
-.Dropdown__column.vertical:hover .Dropdown__allLinks.vertical   {
-display: block;
-
-}
-
-.Dropdown__wrap.vertical {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Dropdown__column.vertical:hover .Dropdown__allLinks.vertical {
+  display: block;
+}
+
+.Dropdown__column.vertical:active .Dropdown__allLinks.vertical {
+  /* display: none; */
+
+}
+
+.Dropdown__column.vertical:hover{
+  cursor: pointer;
+  color: #6440fb;
 }
 
 .Dropdown__column {
@@ -54,6 +63,7 @@ display: block;
   font-weight: 400;
   font-size: 17px;
   line-height: 26px;
+  cursor: default;
 }
 
 .Dropdown__name.vertical {
@@ -61,6 +71,7 @@ display: block;
   font-weight: 400;
   font-size: 15px;
   line-height: 35px;
+  cursor: pointer;
 }
 
 .Dropdown__name:not(last-child) {
@@ -68,7 +79,8 @@ display: block;
 }
 
 .Dropdown__allLinks.vertical {
-display: none;
+  color: #140342;
+  display: none;
   box-sizing: border-box;
   width: 300px;
   padding: 22px 104px 0px 40px;
@@ -81,10 +93,13 @@ display: none;
 }
 
 .Dropdown__link {
+  display: block;
   color: inherit;
   font-weight: 400;
   font-size: 15px;
   line-height: 35px;
+  cursor: pointer;
+  text-decoration:none;
 }
 
 .Dropdown__link:hover {

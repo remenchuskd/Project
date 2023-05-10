@@ -1,0 +1,56 @@
+.Pagination{
+  width: 344px;
+  display: flex;
+  align-items: center;
+}
+
+.Pagiantion__pages{
+  margin: 0 41px;
+  width: 172px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Pagination__num {
+  width: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #140342;
+}
+
+.Pagination__current {
+  text-align: center;
+  width: 16px;
+  padding-bottom: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6440fb;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #6440fb;
+}
+
+.Pagination__btn{
+    cursor: pointer;
+    width:45px ;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #6440FB;
+    border: none;
+}
+
+.Pagination__btn svg path{
+  color: #FFFFFF;
+}
+
+.Pagination__btn.disable{
+  background-color: #E5F0FD;
+   cursor: not-allowed;
+   pointer-events: none;
+}
+
+.Pagination__btn.disable svg path{
+ color: #6440FB;
+}

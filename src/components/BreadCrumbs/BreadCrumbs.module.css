@@ -1,0 +1,25 @@
+.BreadCrumbs{
+   display: flex;
+  align-items: center;  
+}
+
+.BreadCrumbs__wrap {
+  display: flex;
+  align-items: center;
+}
+
+.BreadCrumbs__crumbs {
+text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #4f547b;
+}
+
+.BreadCrumbs__slash {
+  margin: 0 10px;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  background: #6a7a99;
+}

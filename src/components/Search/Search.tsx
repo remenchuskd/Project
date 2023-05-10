@@ -1,12 +1,13 @@
 import styles from './Search.module.css';
 import React from 'react';
 import Icon from '../Icon/Icon';
-type Props={
-  onChange:Function,
-  text:string,
-}
+import Button from '../Button/Button';
+type Props = {
+  onChange: Function;
+  placeholder: string;
+};
 
-export default function Search({ onChange, text }:Props) {
+export default function Search({onChange, placeholder,}: Props) {
   let [isSearch, setIsSearch] = React.useState('');
 
   React.useEffect(() => {
@@ -17,12 +18,12 @@ export default function Search({ onChange, text }:Props) {
     <div className={styles.Search}>
       <input
         className={styles.Search__input}
-        type='text'
-        placeholder={text}
+        type="text"
+        placeholder={placeholder}
         onChange={(e) => setIsSearch(e.target.value)}
       />
       <span className={styles.Search__icon}>
-        <Icon hoverable={true} type={'search'} />
+      <Icon hoverable={true} type={'search'} />
       </span>
     </div>
   );

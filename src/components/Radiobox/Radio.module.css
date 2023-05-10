@@ -1,0 +1,53 @@
+.Radiobox {
+  position: relative;
+}
+
+.Radiobox__input {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+}
+
+.Radiobox__label {
+  display: block;
+  height: 15px;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+.Radiobox__label:before {
+  content: "";
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #6a7a99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.Radiobox__label:after {
+  content: "";
+  box-sizing: border-box;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #1a064f;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition:opacity 0.2s linear;
+  background-image: url(/radio.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.Radiobox__input:checked + .Radiobox__label:after{
+    opacity: 1;
+}

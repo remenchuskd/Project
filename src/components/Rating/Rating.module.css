@@ -1,0 +1,12 @@
+.Rating {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #e59819;
+}
+
+.Rating_lg {
+  font-size: 60px;
+  line-height: 69px;
+  color: #140342;
+}

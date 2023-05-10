@@ -1,0 +1,57 @@
+.Button{
+  position: relative;
+}
+
+.Button__sort {
+  box-sizing: border-box;
+  border: none;
+  width: 174px;
+  padding: 17px 15px;
+  background: #eef2f6;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Button__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+  text-transform: uppercase;
+}
+
+.Button__items {
+  position: absolute;
+  box-sizing: border-box;
+  width: 174px;
+  padding: 15px 15px;
+  display: none;
+  transition: all 0.3s ease;
+  background: #eef2f6;
+  z-index: 100;
+}
+
+.Button__items.active {
+  display: block;
+}
+
+.Button__item {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+  text-transform: uppercase;
+}
+
+.Button__item:hover {
+  background-color: #e5f0fd;
+  text-transform: uppercase;
+}
+
+.Button__item:not(:last-child) {
+  margin-bottom: 5px;
+}

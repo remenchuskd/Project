@@ -1,0 +1,24 @@
+.Tag {
+  box-sizing: border-box;
+  padding: 9px 17px 7px;
+  border-radius: 60px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  background-color: #6440fb;
+  text-transform: uppercase;
+}
+
+.Tag_color_blue {
+  background-color: #6440fb;
+}
+
+.Tag_color_green {
+  background-color: #00ff84;
+  color: #140342;
+}
+
+.Tag_color_red {
+  background-color: #e8543e;
+}

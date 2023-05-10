@@ -8,6 +8,7 @@ export default {
     color: { control: 'radio', options: ['blue', 'darkblue', 'green'] },
     text: { control: 'text' },
     outlined: { control: 'boolean' },
+    small: { control: 'boolean' },
   },
 };
 
@@ -47,6 +48,15 @@ export const DarkBlue = ({ text, outlined }) => {
       text={text || 'текст'}
       outlined={outlined || false}
       color={'darkblue'}
+    />
+  );
+};
+
+export const Small = ({ text, small }) => {
+  return (
+    <Button
+      text={text || 'текст'}
+      color={color || 'blue'}
     />
   );
 };

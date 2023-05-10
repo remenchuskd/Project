@@ -1,0 +1,69 @@
+.BreadCrumbs {
+  padding: 16px 0;
+   margin-bottom: 90px;
+ }
+
+.Courses__h {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 46px;
+  color: #140342;
+  margin-bottom: 100px;
+}
+
+.Courses__wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Courses__sidebar {
+  width: 270px;
+}
+
+.Courses__filter:not(:last-child) {
+  box-sizing: border-box;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.Courses__cards {
+  width: 100%;
+  margin-left: 60px;
+}
+
+.Courses__top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.Courses__total {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Courses__total_res {
+  color: #140342;
+}
+
+.Courses__cardslist {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 90px;
+}
+
+.Courses__card {
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.Pagination{
+  width: 344px;
+  margin: 0 auto 120px;
+}

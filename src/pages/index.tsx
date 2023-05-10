@@ -5,6 +5,12 @@ import Button from '@/components/Button/Button';
 import Search from '@/components/Search/Search';
 import Header from '@/components/Header/Header';
 import React from 'react';
+import Promo from '@/components/Promo/Promo';
+import CoursesCard from '@/components/AllCourses/CoursesCard';
+import Layout from '@/components/Layout/Layout';
+import CategoriesTop from '@/components/CategoriesTop/CategoriesTOP';
+import InstructorsTop from '@/components/InstructorsTop/InstructorsTop';
+import Presenation from '@/components/Presenation/Presenation';
 
 export default function Home() {
   let [isSearch, setIsSearch] = React.useState('');
@@ -17,7 +23,13 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <Header/>
+        <Layout>
+          <Promo />
+          <CoursesCard />
+          <CategoriesTop/>
+          <InstructorsTop/>
+          <Presenation/>
+        </Layout>
       </main>
     </>
   );

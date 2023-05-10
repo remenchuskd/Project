@@ -1,0 +1,135 @@
+.Footer__up {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 60px 0;
+}
+
+.Footer__social {
+  display: flex;
+  align-items: center;
+}
+
+.Footer__socialText {
+  margin-right: 39px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.Footer__icon:not(:last-child) {
+  margin-right: 20px;
+}
+
+.Footer__border {
+  height: 1px;
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 0.15;
+}
+
+.Footer__center {
+  box-sizing: border-box;
+  margin: 60px 0;
+  display: flex;
+  justify-content: space-between;
+  max-height: 300px;
+}
+
+.Footer__column {
+}
+
+.Footer__wrap { 
+  display: flex;
+
+}
+
+.Footer__info {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 26px;
+}
+
+.Footer__about{
+  display: flex;
+  flex-direction: column;
+}
+
+.Footer__elem {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 35px;
+  color: #ffffff;
+}
+
+.Footer__category:not(:last-child){
+    width: 100%;
+    margin-right: 100px;
+}
+
+.Footer__elem:hover {
+  cursor: pointer;
+  color: #00ff84;
+}
+
+.Footer__spam:hover {
+  cursor: auto;
+  color: #ffffff;
+}
+
+.Footer__bottom {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Footer__bottomLeft {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #ffffff;
+}
+
+.Footer__privacy {
+  width: 430px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+
+.Footer__bottomRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Footer__terms {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.Footer__btn {
+  padding: 15px 32px;
+  background: #ffffff;
+  opacity: 0.1;
+  border-radius: 50px;
+  border: none;
+}
+
+.Footer__btnText {
+  margin-left: 15px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #ffffff;
+  opacity: 1;
+}

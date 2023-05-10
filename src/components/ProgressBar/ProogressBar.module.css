@@ -1,0 +1,12 @@
+.Progress {
+  width: 345px;
+  height: 5px;
+  background-color: #cce0f8;
+  border-radius: 4px;
+}
+
+.Progress__result {
+  height: 100%;
+  background-color: #6440fb;
+  border-radius: 4px;
+}

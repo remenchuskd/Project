@@ -1,0 +1,36 @@
+.Tabs {
+  width: 100%;
+}
+
+.Tabs__head {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid #EDEDED;
+}
+
+.Tabs__name {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Tabs__name:not(:last-child){
+    margin-right: 30px;
+}
+
+.Tabs__name.active{
+    color: #6440FB;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #6440FB;
+}
+
+.Tabs__item{
+    display: none;
+}
+
+.Tabs__item.active{
+    display: block;
+}
+

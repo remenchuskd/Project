@@ -1,0 +1,83 @@
+.Container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.Courses {
+  margin-bottom: 100px;
+}
+
+.Courses__h {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+  color: #140342;
+}
+
+.Courses__wrap {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.Courses__cards {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  left: 0;
+  transition: all ease 0.5s;
+}
+
+.Courses__card {
+  margin-right: 30px;
+}
+
+.Courses__button_next,
+.Courses__button_prev {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+}
+
+.Courses__button_next {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #6440fb;
+  right: 0;
+  top: 50%;
+  z-index: 10;
+}
+
+.Courses__button_prev {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #6440fb;
+  top: 50%;
+  left: 0;
+  z-index: 10;
+}
+
+.Courses__arrow {
+  width: 24px;
+  height: 24px;
+}
+
+.Courses__button_next.disabled,
+.Courses__button_prev.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  background: #ffffff;
+  box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+  border-radius: 50px;
+}
+
+.Courses__button_next.disabled .Courses__arrow svg path,
+.Courses__button_prev.disabled .Courses__arrow svg path {
+  color: #140342;
+}

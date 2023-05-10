@@ -4,6 +4,10 @@
   width: 340px;
 }
 
+.Search.Search_sm{
+  width: 298px;
+}
+
 .Search__input {
   box-sizing: inherit;
   width: 100%;
@@ -17,6 +21,10 @@
   color: #140342;
 }
 
+.Search__input.Search_sm{
+  padding: 22px 10px 22px 30px;
+}
+
 .Search__icon {
   position:absolute;
   display: flex;
@@ -28,8 +36,7 @@
   color: #6a7a99;
 }
 
-
-
 .Search__icon:hover .icon_search path{
   stroke : #140342;
 }
+

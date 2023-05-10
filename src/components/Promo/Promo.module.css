@@ -1,0 +1,66 @@
+@media (max-width: 1280px) {
+}
+
+.Container{
+  margin-bottom: 100px;
+}
+
+.Promo {
+  margin-top: 40px;
+  height: 606px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  max-width: 1590px;
+  margin:0 auto;
+  padding-left: 300px;
+}
+
+.Promo__text {
+  margin-right: 40px;
+  width: 530px;
+  min-width: 530px;
+  color: #140342;
+}
+
+.Promo__header {
+  margin-bottom: 13px;
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 80px;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+.Promo__underline {
+  color: #6440fb;
+  text-decoration: underline;
+  text-decoration-color: #6440fb;
+}
+
+.Promo__descr {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 36px;
+  text-transform: capitalize;
+  color: inherit;
+  margin-bottom: 27px;
+}
+
+.Promo__buttons {
+  display: flex;
+}
+
+.Promo__button {
+  margin-right: 20px;
+}
+
+.Promo__img {
+  width: 1079px;
+  height: 606px;
+  background: no-repeat url(/promo.png);
+  /* background: no-repeat
+    url(https://koshka.top/uploads/posts/2021-12/1638771511_1-koshka-top-p-milogo-kotika-v-shapochke-1.jpg); */
+  background-size: auto;
+}

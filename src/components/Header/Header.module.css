@@ -1,13 +1,4 @@
-@media(max-width:1365px){
-    .Header__left{
-        width: 900px;
-        background-color: #6440fb;
-    }
 
-    .Header__right{
-        width: 670px;
-    }
-}
 
 .Header {
   box-sizing: border-box;
@@ -15,19 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0 20px;
+  padding: 0 0 5px;
   border-bottom: 1px solid #ededed;
   color: #140342;
 }
 
 .Header__left {
-  min-width: 870px;
+  max-width: 870px;
+  min-width: 700px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .Header__explore {
+    margin: 0 7px 0 7px;
   width: 85px;
   display: flex;
   align-items: center;
@@ -61,6 +54,12 @@
   background-color: #140342;
 }
 
+.Header__exploreText {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+}
+
 .Header__right {
   min-width: 630px;
   display: flex;
@@ -83,26 +82,28 @@
 }
 
 .Header__menu {
-  width: 510px;
-  height: 50px;
+  max-width: 510px;
+  height: 55px;
   display: flex;
   color: #140342;
 }
 
-.Header__nav{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
+.Header__nav {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
 }
 
 .Header__nav:not(:last-child) {
   margin-right: 20px;
 }
 
-.Header__navElement{
-    color: inherit;
-   
+.Header__navElement {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: inherit;
 }
 
 .Header__link {
@@ -111,20 +112,33 @@
   text-decoration: none;
 }
 
-.Header__dropdown_svg{
-    margin-left: 6px;
+.Header__dropdown_svg {
+  margin-left: 6px;
 }
 
-.Header__dropdown{
-    display: none;
-    position: absolute;
-    top: 40px;
-
+.Header__dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
 }
 
 .Courses:hover .Header__dropdownCourses,
-.Pages:hover .Header__dropdownPages{
-    display: block;
+.Pages:hover .Header__dropdownPages {
+  display: block;
 }
 
 
+@media (max-width: 1600px) {
+    .Header__left {
+      max-width: 800px;
+      min-width: 620px
+    }
+  
+    .Header__right {
+      width: 570px;
+    }
+  
+    .Header__menu {
+      width: 350px;
+    }
+  }

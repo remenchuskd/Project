@@ -1,5 +1,5 @@
-import styles from "./ButtonIcon.module.css";
-import Icon from "../Icon/Icon";
+import styles from './ButtonIcon.module.css';
+import Icon from '../Icon/Icon';
 type Props={
   icontype:string,
   iconHover?:boolean,

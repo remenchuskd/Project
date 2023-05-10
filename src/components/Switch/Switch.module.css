@@ -1,0 +1,42 @@
+.Switch {
+}
+
+.Switch__input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.Switch__label {
+  box-sizing: border-box;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #6a7a99;
+  border: 1px solid #e7e7ec;
+  box-shadow: 0px 8px 15px rgba(140, 152, 164, 0.1);
+  border-radius: 30px;
+}
+
+.Switch__label:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  top:5px;
+  left:5px;
+  transition: all .3s ease;
+}
+
+.Switch__input:checked + .Switch__label{
+    background-color: #6440FB;
+}
+
+.Switch__input:checked + .Switch__label:after{
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}

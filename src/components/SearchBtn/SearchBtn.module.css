@@ -1,0 +1,28 @@
+.Search {
+  box-sizing: border-box;
+  position: relative;
+  width: 298px;
+}
+
+.Search__input {
+  box-sizing: inherit;
+  width: 100%;
+  padding: 22px 10px 22px 30px;
+  border: 1px solid #ededed;
+  border-radius: 60px;
+  background-color: white;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #4f547b;
+}
+
+.Search__btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  cursor: pointer;
+}
