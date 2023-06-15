@@ -1,0 +1,124 @@
+.Login {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 50px;
+  width: 520px;
+  background: #ffffff;
+  box-shadow: 0px 1px 4px rgba(20, 3, 66, 0.07);
+  border-radius: 16px;
+}
+
+.Login__h {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+  color: #140342;
+}
+
+.Login__desrc {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Login__sign {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #6440fb;
+}
+
+.Login__block {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Login__check {
+  display: flex;
+  align-items: center;
+}
+
+.Login__remember {
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Login__password {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  text-decoration-line: underline;
+  color: #6440fb;
+}
+
+.Login__btn {
+  cursor: pointer;
+  width: 100%;
+  padding: 21px 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: center;
+  background: #00ff84;
+  border-radius: 8px;
+  border: none;
+  color: #140342;
+}
+
+.Login__text {
+  margin: 20px 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  text-align: center;
+  color: #140342;
+}
+
+.Login__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Login__btnFB {
+  cursor: pointer;
+  width: 200px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #ffffff;
+  border: 2px solid #1967d2;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1967d2;
+}
+
+.Login__btnGoogle {
+  cursor: pointer;
+  width: 200px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #d93025;
+  padding: 15px 30px;
+  background: #ffffff;
+  border: 2px solid #d93025;
+  border-radius: 8px;
+}

@@ -1,0 +1,88 @@
+.Card {
+  width: 300px;
+}
+
+.Card__img {
+  box-sizing: border-box;
+  width: 300px;
+  height: 210px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-image: url(/cardImage.png);
+  background-repeat: no-repeat;
+}
+
+.Card__tag {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card__info {
+  border-bottom: 1px solid #ededed;
+}
+
+.Card__rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.Card__ratingElem:not(:last-child){
+  margin-right: 10px;
+}
+
+.Card__text {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: capitalize;
+  color: #140342;
+}
+
+.Card__info {
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Card__icon {
+  margin-right: 10px;
+}
+
+.Card__infoItem {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Card__infoItem:not(:last-child) {
+  margin-right: 20px;
+}
+
+.Card__commerce {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0 4px;
+}
+
+.Card__author {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Card__price {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #140342;
+}

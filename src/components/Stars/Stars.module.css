@@ -1,0 +1,11 @@
+.Star__wrap{
+    display: flex;
+}
+
+.Star:not(:last-child) {
+    margin-right: 7px;
+}
+
+.Star_bg:not(:last-child) {
+    margin-right: 10px;
+}

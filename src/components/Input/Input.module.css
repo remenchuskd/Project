@@ -1,0 +1,20 @@
+.Input {
+  width: 100%;
+}
+
+.Input__label {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #140342;
+}
+
+.Input__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 22px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+}

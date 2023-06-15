@@ -3,5 +3,10 @@
 }
 
 .icon_hoverable:hover svg path {
-  stroke: black;
+  stroke: #6440fb;
 }
+
+.link_hoverable:hover svg path {
+  stroke: #FFFFFF;
+}
+

@@ -8,32 +8,85 @@
   line-height: 18px;
   border-radius: 8px;
   background-color: white;
-  border: 1px solid black;
+  border: none;
+  color: #140342;
+  cursor: pointer;
+}
+
+.Button.Button_radius {
+  border-radius: 60px;
 }
 
 .Button_color_blue {
   background-color: #6440fb;
+  color: #ffffff;
 }
+
+.Button_color_blue:hover {
+  box-sizing: border-box;
+  border: 2px solid #6440FB;
+  background-color: #ffffff;
+  color: #6440FB;
+}
+
+
 
 .Button_color_blue.Button_outlined {
   background-color: white;
   border: 2px solid #6440fb;
+  color: #6440fb;
 }
 
 .Button_color_green {
   background-color: #00ff84;
+  color: #1a064f;
+}
+
+
+.Button_color_green:hover{
+  background-color: white;
+  border: 2px solid #00FF84;
+  color: #00FF84;
 }
 
 .Button_color_green.Button_outlined {
   background-color: white;
   border: 2px solid #00ff84;
+  color: #00ff84;
 }
+
+
 
 .Button_color_darkblue {
   background-color: #1a064f;
+  color: #ffffff;
+}
+
+.Button_color_darkblue:hover {
+  border: 2px solid #1A064F;
+  background-color:  #FFFFFF;
+  color: #1A064F;
 }
 
 .Button_color_darkblue.Button_outlined {
   background-color: white;
   border: 2px solid #1a064f;
+  color: #1a064f;
+}
+
+.Button_color_lightblue{
+  background: rgba(100, 64, 251, 0.07);
+  color: #6440FB;
+}
+
+.Button_color_lightblue:hover{
+  background: #6440FB;
+  color: #FFFFFF;
+}
+
+.Button_small {
+  padding: 13px 24px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
 }

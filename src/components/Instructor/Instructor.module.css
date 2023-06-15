@@ -1,0 +1,78 @@
+.Instructor {
+  padding-top: 60px;
+  width: 100%;
+}
+
+.Instructor__h {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #140342;
+}
+.Instructor__wrap {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.Instructor__descr {
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Instructor__info {
+  margin-left: 20px;
+}
+
+.Instructor__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Instructor__name {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: capitalize;
+  color: #140342;
+}
+
+.Instructor__prof {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  text-align: center;
+  color: #4f547b;
+}
+
+.Instructor__social {
+  display: flex;
+}
+
+.Instructor__elem {
+  display: flex;
+  align-items: flex-end;
+}
+
+.Instructor__rate {
+  margin: 0 5px;
+}
+
+.Instructor__elem:not(:last-child) {
+  margin-right: 20px;
+}
+
+.Instructor__text {
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #4f547b;
+}

@@ -1,0 +1,67 @@
+.BreadCrumbs {
+  padding-top: 16px;
+  margin-bottom: 90px;
+}
+
+.Course {
+  box-sizing: border-box;
+  width: 665px;
+  padding-bottom: 90px;
+}
+
+.Course__tags {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.Course__tag:not(:last-child) {
+  margin-right: 15px;
+}
+
+.Course__h {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #140342;
+}
+
+.Course__descr {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+  margin-bottom: 20px;
+}
+
+.Course__info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Course__item {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Course__infoelem {
+  margin-right: 10px;
+}
+
+.Course__author {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Course__tabs{
+    width: 850px;
+    margin-bottom: 100px;
+}
+

@@ -1,0 +1,82 @@
+.Rewiev {
+  width: 100%;
+  padding-top: 60px;
+}
+
+.Rewiev__h {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #140342;
+}
+
+.Rewiev__ratingInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Rewiev__ratingbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #f5f7fe;
+  border-radius: 8px;
+  padding: 50px 97px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Rewiev__ratingStar {
+  padding: 10px 0;
+}
+
+.Rewiev__ratingProgress {
+  box-sizing: border-box;
+  padding: 15px 30px;
+  width: 542px;
+  background: #f5f7fe;
+  border-radius: 8px;
+}
+
+.Review__progress:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.Review__progressQnt {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 40px;
+  color: #140342;
+}
+
+.Review__progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Rewiev__all {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  color: #6440fb;
+}
+
+.Rewiev__ask {
+    margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #140342;
+}
+.Rewiev__input,
+.Rewiev__stars{
+  margin-bottom: 30px;
+}

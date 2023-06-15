@@ -1,0 +1,29 @@
+.ColorBlock{
+    margin: 0;
+    padding: 0;
+}
+
+.ColorBlock_lightblue{
+    background-color: #F5F7FE;
+}
+
+.ColorBlock_yellow{
+    background-color: #FEFBF4;
+}
+
+.ColorBlock_grey{
+    background-color:#EEF2F6;
+}
+
+.ColorBlock_blue{
+    background-color:#6440FB;
+}
+
+.ColorBlock_darkblue{
+    background-color:#1A064F;
+}
+
+
+
+
+

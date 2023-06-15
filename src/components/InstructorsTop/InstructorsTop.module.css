@@ -1,0 +1,37 @@
+.Instructors{
+  padding: 100px 0;
+}
+
+.Instructors__h {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+  color: #140342;
+}
+
+.Instructors__wrap{
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.Instructors__descr {
+
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Instructors__cards{
+  display: flex;
+}
+
+.Instructors__card{
+    cursor: pointer;
+}
+
+.Instructors__card:not(:last-child){
+    margin-right: 30px;
+}

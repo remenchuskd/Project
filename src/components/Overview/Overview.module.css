@@ -1,0 +1,12 @@
+.Overview {
+    padding-top: 60px;
+    width: 100%; 
+}
+
+.Overview__h {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #140342;
+}

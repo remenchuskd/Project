@@ -1,0 +1,42 @@
+.Button {
+  cursor: pointer;
+  height: 50px;
+  padding: 16.5px 29px;
+  background: rgba(100, 64, 251, 0.07);
+  border-radius: 8px;
+  color: #6440fb;
+  border: none;
+}
+
+.Button__text {
+  margin-right: 13px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  color: #6440fb;
+}
+
+.Button:hover {
+  background: #6440fb;
+}
+
+.Button:hover .Button__text {
+  color: #ffffff;
+}
+
+.Button:hover .Button__svg path{
+    stroke:#ffffff ;
+}
+
+.Button_outlined {
+  background-color: #ffffff;
+  border: 2px solid #6440fb;
+}
+
+.Button_radius {
+  border-radius: 60px;
+}
+
+.Button__link{
+  text-decoration: none;
+}

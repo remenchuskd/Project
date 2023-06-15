@@ -1,0 +1,45 @@
+.Categories{
+    margin-bottom: 100px;
+}
+
+.Categories__h {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+  color: #140342;
+}
+
+.Categories__descr {
+
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Categories__wrap{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.Categories__cards{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Categories__card{
+    cursor: pointer;
+}
+
+.Categories__card:not(:nth-child(4n)){
+    margin-right: 30px;
+}
+
+.Categories__card:nth-child(-n+4){
+    margin-bottom: 30px;
+}
+
+
