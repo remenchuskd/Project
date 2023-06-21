@@ -53,6 +53,7 @@
 
 .Instructor__info{
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -65,10 +66,22 @@
     margin-right: 5px;
 }
 
-.Instructor__elem:not(:last-child){
-    margin-right: 15px;
-}
+/* .Instructor__elem:not(:last-child){
+    /* margin-right: 15px;
+} */ 
 
 .Instructor__svg{
-    margin-right: 10px;
+    margin-right: 5px;
+}
+
+.Instructor__rate{
+  display: flex;
+}
+
+.Instructor__like{
+  cursor: pointer;
+}
+
+.Instructor__like:not(:last-child){
+  margin-right: 3px;
 }

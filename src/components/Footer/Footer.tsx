@@ -1,36 +1,39 @@
-import React from 'react';
-import style from './Footer.module.css';
-import ColorBlock from '../ColorBlock/ColorBlock';
-import Container from '../Container/Container';
-import Link from 'next/link';
-import Icon from '../Icon/Icon';
-import SearchBtn from '../SearchBtn/SearchBtn';
-type Props = {
-  categories: string;
-};
+import React, { useContext } from "react";
+import style from "./Footer.module.css";
+import ColorBlock from "../ColorBlock/ColorBlock";
+import Container from "../Container/Container";
+import Link from "next/link";
+import Icon from "../Icon/Icon";
+import SearchBtn from "../SearchBtn/SearchBtn";
+import {CategoriesContext} from '../../contexts/categoryContext'
 
-export default function Footer({ categories }: Props) {
-  let [isEmail, setIsEmail] = React.useState('');
+export default function Footer() {
+  let [isEmail, setIsEmail] = React.useState("");
+  let data=useContext(CategoriesContext)
+
+  // React.useEffect(() => {
+  //   async function getFetch() {
+  //     let response= await fetch('http://localhost:3000/api/getCategories')
+  //     let data=await response.json();
+  //     let arrayName=data.map((category:any)=>{
+  //       return category.name
+  //     })
+  //     setData(arrayName)
+  //   }
+  //   getFetch()
+      
+
+  // }, []);
+
+  let arrayName=data.map((category:any)=>{
+          return category.name
+  })
 
   function whatEmail(ev: string) {
     setIsEmail(ev);
     return isEmail;
   }
-  let data = [
-    'Бизнесс',
-    'Финансы',
-    'ИТ и Разработка',
-    'Дизайн',
-    'Маркетинг',
-    'Фотография',
-    'Музыка',
-    'UX Дизайн',
-    'Фитнесс',
-    'Фотография',
-    'Музыка',
-    'UX Дизайн',
-    'Фитнесс',
-  ];
+
 
   let columnNum = data.length / 7;
 
@@ -38,22 +41,22 @@ export default function Footer({ categories }: Props) {
     <Container>
       <div className={style.Footer__up}>
         <Link href="/">
-          <Icon type={'logoWhite'} />
+          <Icon type={"logoWhite"} />
         </Link>
         <div className={style.Footer__social}>
           <span className={style.Footer__socialText}>
-            {' '}
+            {" "}
             мы в социальных сетях
           </span>
           <div className={style.Footer__icons}>
             <span className={style.Footer__icon}>
-              <Icon type={'facebook'} />
+              <Icon type={"facebook"} />
             </span>
             <span className={style.Footer__icon}>
-              <Icon type={'insta'} />
+              <Icon type={"insta"} />
             </span>
             <span className={style.Footer__icon}>
-              <Icon type={'linkedin'} />
+              <Icon type={"linkedin"} />
             </span>
           </div>
         </div>
@@ -73,24 +76,26 @@ export default function Footer({ categories }: Props) {
         <div className={style.Footer__column}>
           <div className={style.Footer__info}>Категории</div>
           <div className={style.Footer__wrap}>
-            {new Array(2).fill('column').map((column, key) => {
-              let start=0;
-              if(key > 0){
-                start=7*key;
+            {data.length && new Array(2).fill("column").map((column, key) => {
+              let start = 0;
+              if (key > 0) {
+                start = 7 * key;
               }
               return (
                 <div key={key} className={style.Footer__category}>
-                  
-                  { data.slice(start, 7+start).map((elem, key) => {
+                  {arrayName.slice(start, 7 + start).map((elem, key) => {
                     return (
                       <div className={style.Footer__elem} key={key}>
-                        {elem}{' '}
+                        {elem}{" "}
                       </div>
                     );
                   })}
                 </div>
               );
             })}
+            {!arrayName.length && <div></div> // загрузчик
+
+            }
           </div>
         </div>
         <div className={style.Footer__column}>
@@ -103,14 +108,14 @@ export default function Footer({ categories }: Props) {
         <div className={style.Footer__column}>
           <div className={style.Footer__info}>Остаемся на связи</div>
           <div className={`${style.Footer__elem} ${style.Footer__spam}`}>
-            {' '}
+            {" "}
             Мы не будем рассылать спам, не беспокойтесь
           </div>
           <SearchBtn
             onChange={whatEmail}
-            placeholder={'Email...'}
-            textBtn={'Отправить'}
-            colorBtn={'blue'}
+            placeholder={"Email..."}
+            textBtn={"Отправить"}
+            colorBtn={"blue"}
             smallBtn={true}
             radiusBtn={true}
           />

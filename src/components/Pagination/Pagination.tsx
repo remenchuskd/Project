@@ -1,15 +1,13 @@
-import React from 'react';
-import style from './Pagination.module.css';
-import usePagination from '../Hook/usePagiantion';
+import React from "react";
+import style from "./Pagination.module.css";
+import usePagination from "../Hook/usePagiantion";
 type props = {
   totalCount: number;
   pageSize: number;
   siblingCount: number;
   currentPage: number;
-  setCurrentPage: Function; //по идее функция ,куда складывается страница
+  setCurrentPage: Function; //функция ,куда складывается страница
 };
-
-
 
 export default function Pagination({
   totalCount,
@@ -18,7 +16,6 @@ export default function Pagination({
   currentPage,
   setCurrentPage,
 }: props) {
-
   let disabledBtnClass;
   let paginationRange: any[] = [];
   paginationRange = usePagination({
@@ -27,14 +24,14 @@ export default function Pagination({
     siblingCount,
     currentPage,
   });
-  let DOTS = '...';
+  let DOTS = "...";
   let pageCount = Math.ceil(totalCount / pageSize);
 
   function onPrev() {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1);
-      disabledBtnClass = '';
-    } 
+      disabledBtnClass = "";
+    }
   }
 
   function onNext() {
@@ -78,7 +75,7 @@ export default function Pagination({
           if (pageNumber !== DOTS) {
             return (
               <div
-                onClick={(pageNumber) => setCurrentPage(pageNumber)}
+                onClick={() => setCurrentPage(pageNumber)}
                 key={key}
                 className={
                   pageNumber === currentPage

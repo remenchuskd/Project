@@ -73,14 +73,33 @@
   background-color: #ededed;
 }
 
+.Header__enter,
+.Header__user{
+  display: flex;
+  align-items: center;
+}
+
+.Header__enter.inactive,
+.Header__user.inactive{
+  display: none;
+}
+
 .Header__login {
   cursor: pointer;
   color: #6440fb;
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
+  margin-right: 10px;
 }
 
+.Header__userHello{
+  color: #6440fb;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  margin-right: 10px;
+}
 .Header__menu {
   max-width: 510px;
   height: 55px;

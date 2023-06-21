@@ -10,3 +10,8 @@
   stroke: #FFFFFF;
 }
 
+.Icon__like svg {
+  width: 10px ;
+  height:10px ;
+}
+

@@ -1,0 +1,40 @@
+.Layout {
+  box-sizing: border-box;
+  display: flex;
+  width: 100vw;
+  height: 960px;
+}
+
+.Layout__left {
+  width: 40%;
+  height: 100%;
+}
+
+.Layout__right {
+  width: 60%;
+}
+
+.Layout__wrap {
+    position: relative;
+  height: 960px;
+  padding: 20px 60px;
+}
+
+.Layout__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 526.66px;
+  height: 589.99px;
+  background-image: url(/image-bg-layout2.png);
+  background-repeat: no-repeat;
+  transform: translate(-50%,-50%);
+}
+
+.Layout__login{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}

@@ -1,0 +1,56 @@
+.Header {
+  display: flex;
+  align-items:center;
+}
+
+.Header__menu {
+  width: 510px;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  color: #140342;
+}
+
+.Header__nav {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.Header__navElement {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #140342;
+}
+
+.Header__link {
+  color: inherit;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.Header__dropdown_svg {
+  margin-left: 6px;
+}
+
+.Header__dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+}
+
+.Courses:hover .Header__dropdownCourses,
+.Pages:hover .Header__dropdownPages {
+  display: block;
+}
+
+.Header__wrap {
+  margin-left: 40px;
+  display: flex;
+}
+
+.Header__login{
+    margin-right: 30px;
+}

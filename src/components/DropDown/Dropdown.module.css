@@ -24,7 +24,7 @@
 .Dropdown__column.vertical {
   box-sizing: border-box;
   padding-right: 30px;
-
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,11 +33,6 @@
 
 .Dropdown__column.vertical:hover .Dropdown__allLinks.vertical {
   display: block;
-}
-
-.Dropdown__column.vertical:active .Dropdown__allLinks.vertical {
-  /* display: none; */
-
 }
 
 .Dropdown__column.vertical:hover{

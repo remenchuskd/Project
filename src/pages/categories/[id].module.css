@@ -1,5 +1,5 @@
 .BreadCrumbs {
-  padding-top: 16px;
+ padding-top: 16px;
   margin-bottom: 90px;
 }
 
@@ -60,8 +60,8 @@
   color: #4f547b;
 }
 
-.Course__tabs{
-    width: 850px;
-    margin-bottom: 100px;
+.Course__tabs {
+  padding-top: 30px;
+  width: 850px;
+  margin-bottom: 100px;
 }
-

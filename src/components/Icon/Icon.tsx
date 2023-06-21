@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './Icon.module.css';
+import React from "react";
+import styles from "./Icon.module.css";
+
 type Props = {
   type: string;
   hoverable?: boolean;
@@ -8,11 +9,11 @@ type Props = {
 export default function Icon({ type, hoverable }: Props) {
   // (props: Props )
   let result;
-  let iconHoverableClass = hoverable ? styles.icon_hoverable : '';
-  let linkHoverableClass = hoverable ? styles.link_hoverable : '';
+  let iconHoverableClass = hoverable ? styles.icon_hoverable : "";
+  let linkHoverableClass = hoverable ? styles.link_hoverable : "";
 
   switch (type) {
-    case 'cart':
+    case "cart":
       result = (
         <span className={`${styles.icon} ${iconHoverableClass} `}>
           <svg
@@ -34,7 +35,7 @@ export default function Icon({ type, hoverable }: Props) {
         </span>
       );
       break;
-    case 'search':
+    case "search":
       result = (
         <span className={`${styles.icon} ${iconHoverableClass} `}>
           <svg
@@ -62,7 +63,13 @@ export default function Icon({ type, hoverable }: Props) {
         </span>
       );
       break;
-    case 'tick-right':
+    case "like":
+      result = <img src="icon-like.png" alt="like" />;
+      break;
+    case "dislike":
+      result = <img src="icon-dislike.png" alt="dislike" />;
+      break;
+    case "tick-right":
       result = (
         <svg
           width="5"
@@ -78,7 +85,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'tick':
+    case "tick":
       result = (
         <svg
           className={styles.icon}
@@ -95,7 +102,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'tick-up':
+    case "tick-up":
       result = (
         <svg
           width="12"
@@ -111,7 +118,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'tick-down':
+    case "tick-down":
       result = (
         <svg
           width="13"
@@ -127,22 +134,25 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'logo':
+    case "logo":
       result = <img src="/logo.png" alt="logo" />;
       break;
-    case 'logoWhite':
+    case "logoWhite":
       result = <img src="/logo_white.png" alt="logo" />;
       break;
-    case 'facebook':
+    case "logoWhite2":
+      result = <img src="/logo_white2.png" alt="logo" />;
+      break;
+    case "facebook":
       result = <img src="/facebook.png" alt="logo" />;
       break;
-    case 'insta':
+    case "insta":
       result = <img src="/insta.png" alt="logo" />;
       break;
-    case 'linkedin':
+    case "linkedin":
       result = <img src="/linkedin.png" alt="logo" />;
       break;
-    case 'link':
+    case "link":
       result = (
         <svg
           className={`${styles.icon} ${linkHoverableClass} `}
@@ -171,7 +181,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'student':
+    case "student":
       result = (
         <svg
           width="16"
@@ -187,7 +197,27 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'course':
+    case "student_white":
+      result = (
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.5312 15.0625H13.4688V10.4688C13.4688 9.95181 13.0482 9.53125 12.5312 9.53125H11.8343C11.6507 8.73003 11.2851 8.04209 10.7637 7.52528C10.4356 7.2 10.0541 6.95144 9.631 6.78422C10.5378 6.00178 11.1297 4.64916 11.1297 3.42706C11.1297 2.31806 10.8212 1.44766 10.2128 0.840125C9.66244 0.2905 8.89728 0 8 0C7.10275 0 6.33756 0.2905 5.78719 0.840125C5.17878 1.44766 4.87028 2.31806 4.87028 3.42706C4.87028 4.64913 5.46213 6.00178 6.36897 6.78422C5.94591 6.95144 5.56441 7.2 5.23628 7.52528C4.71494 8.04209 4.34934 8.73006 4.16572 9.53125H3.46875C2.95181 9.53125 2.53125 9.95181 2.53125 10.4688V15.0625H0.46875C0.209875 15.0625 0 15.2724 0 15.5312C0 15.7901 0.209875 16 0.46875 16H15.5312C15.7901 16 16 15.7901 16 15.5312C16 15.2724 15.7901 15.0625 15.5312 15.0625ZM8 0.9375C8.68844 0.9375 9.76894 1.16634 10.0955 2.52691C9.61775 2.46616 9.34494 2.33119 9.13141 2.22553C8.92209 2.12197 8.68484 2.00456 8.39531 2.07094C8.16028 2.12481 7.99225 2.25741 7.82978 2.38566C7.53369 2.61938 7.10141 2.95981 5.82469 3.02875C5.98366 1.22053 7.23434 0.9375 8 0.9375ZM5.855 3.96587C7.44709 3.88203 8.04175 3.41275 8.41066 3.12153C8.46406 3.07934 8.53281 3.02513 8.57537 2.99916C8.613 3.01503 8.66853 3.0425 8.71566 3.06581C8.99109 3.20209 9.42356 3.41597 10.191 3.47872C10.1788 4.16894 9.92216 4.93447 9.49809 5.53762C9.06534 6.15319 8.51928 6.50625 8 6.50625C7.48072 6.50625 6.93466 6.15319 6.50187 5.53762C6.17578 5.07378 5.94828 4.51375 5.855 3.96587ZM7.75 7.46875H8.25C9.55087 7.46875 10.4998 8.22937 10.868 9.53125H5.132C5.50019 8.22937 6.44913 7.46875 7.75 7.46875ZM3.46875 15.0625V10.4688H12.5312V15.0625H3.46875Z"
+            fill="white"
+          />
+          <path
+            d="M8 12.9686C8.25888 12.9686 8.46875 12.7588 8.46875 12.4999C8.46875 12.241 8.25888 12.0311 8 12.0311C7.74112 12.0311 7.53125 12.241 7.53125 12.4999C7.53125 12.7588 7.74112 12.9686 8 12.9686Z"
+            fill="white"
+          />
+        </svg>
+      );
+      break;
+    case "course":
       result = (
         <svg
           width="12"
@@ -203,7 +233,39 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'comment':
+    case "course_white":
+      result = (
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.4028 4.6153L3.31529 0.246428C2.80252 -0.0692515 2.18257 -0.0823765 1.65689 0.211319C1.13121 0.504967 0.817383 1.03983 0.817383 1.64197V10.3399C0.817383 11.2504 1.55098 11.995 2.45262 12C2.45508 12 2.45754 12 2.45996 12C2.74172 12 3.03535 11.9116 3.30959 11.7443C3.53021 11.6097 3.59994 11.3217 3.46533 11.1012C3.33073 10.8805 3.04273 10.8108 2.82218 10.9454C2.69391 11.0236 2.56864 11.0641 2.45766 11.0641C2.11746 11.0622 1.75322 10.7708 1.75322 10.3399V1.64199C1.75322 1.38369 1.88785 1.1543 2.11332 1.02833C2.33881 0.90235 2.60471 0.907975 2.82439 1.04323L9.91192 5.4121C10.1249 5.54326 10.2468 5.76195 10.2463 6.01212C10.2458 6.26227 10.123 6.48048 9.90883 6.61119L4.78452 9.74872C4.56411 9.88367 4.49483 10.1717 4.62978 10.3921C4.76471 10.6125 5.05278 10.6818 5.27319 10.5469L10.3969 7.4097C10.8875 7.11043 11.181 6.58871 11.1822 6.014C11.1834 5.43936 10.8919 4.91642 10.4028 4.6153Z"
+            fill="white"
+          />
+        </svg>
+      );
+      break;
+    case "reviews_white":
+      result = (
+        <svg
+          width="16"
+          height="14"
+          viewBox="0 0 16 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 13.11V5.28121C0 2.86009 1.97013 0.889954 4.39126 0.889954H11.6077C14.0293 0.889954 16 2.86009 16 5.28121V6.63156C16 9.05268 14.0299 11.0228 11.6087 11.0228H4.49306L0 13.11ZM4.39126 1.86895C2.50974 1.86895 0.979 3.3997 0.979 5.28121V11.5756L4.27732 10.0433H11.6087C13.4903 10.0433 15.021 8.51254 15.021 6.63103V5.28068C15.021 3.39917 13.4897 1.86843 11.6077 1.86843H4.39126V1.86895ZM4.71407 5.20684C5.22837 5.20684 5.64507 5.62354 5.64507 6.13784C5.64507 6.65213 5.22837 7.06883 4.71407 7.06883C4.19978 7.06883 3.78307 6.65213 3.78307 6.13784C3.78307 5.62354 4.19978 5.20684 4.71407 5.20684ZM11.2854 5.20684C11.7997 5.20684 12.2164 5.62354 12.2164 6.13784C12.2164 6.65213 11.7997 7.06883 11.2854 7.06883C10.7711 7.06883 10.3544 6.65213 10.3544 6.13784C10.3544 5.62354 10.7711 5.20684 11.2854 5.20684ZM7.99921 5.20684C8.5135 5.20684 8.93021 5.62354 8.93021 6.13784C8.93021 6.65213 8.5135 7.06883 7.99921 7.06883C7.48492 7.06883 7.06821 6.65213 7.06821 6.13784C7.06821 5.62354 7.48492 5.20684 7.99921 5.20684Z"
+            fill="white"
+          />
+        </svg>
+      );
+      break;
+    case "comment":
       result = (
         <svg
           width="16"
@@ -219,7 +281,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'clock':
+    case "clock":
       result = (
         <svg
           width="16"
@@ -246,7 +308,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'level':
+    case "level":
       result = (
         <svg
           width="16"
@@ -277,7 +339,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'lesson':
+    case "lesson":
       result = (
         <svg
           width="16"
@@ -312,7 +374,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'tick-circule':
+    case "tick-circule":
       result = (
         <svg
           width="20"
@@ -329,7 +391,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'certificate':
+    case "certificate":
       result = (
         <svg
           width="16"
@@ -349,7 +411,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'access':
+    case "access":
       result = (
         <svg
           width="16"
@@ -380,7 +442,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'video':
+    case "video":
       result = (
         <svg
           width="16"
@@ -400,7 +462,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'circule':
+    case "circule":
       result = (
         <svg
           width="7"
@@ -413,7 +475,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'fb-blue':
+    case "fb-blue":
       result = (
         <svg
           width="8"
@@ -429,7 +491,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case 'google':
+    case "google":
       result = (
         <svg
           width="14"

@@ -1,0 +1,139 @@
+.Instructor {
+  margin: 90px auto 30px;
+  width: 1500px;
+}
+
+.Container {
+  margin: 0 auto;
+  width: 850px;
+}
+
+.Instructor__card {
+  padding: 70px 0;
+}
+
+.Instructor__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.Instructor__descr {
+  margin-bottom: 40px;
+}
+
+.Instructor__name {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #ffffff;
+}
+
+.Instructor__prof {
+  margin-bottom: 11px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #ffffff;
+}
+
+.Instructor__info {
+  display: flex;
+  align-items: center;
+}
+
+.Instructor__item {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #ffffff;
+}
+
+.Instructor__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.Instructor__infoelem {
+  margin-right: 10px;
+}
+
+.Instructor__wrap {
+  display: flex;
+  align-items: center;
+}
+
+.Instructor__btn {
+  cursor: pointer;
+  margin-right: 35px;
+  padding: 21px 55px;
+  border: none;
+  background: #00ff84;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1a064f;
+}
+
+.Instructor__media {
+  display: flex;
+  align-items: center;
+}
+
+.Instructor__social {
+  cursor: pointer;
+}
+
+.Instructor__social:not(:last-child) {
+  margin-right: 25px;
+}
+
+.Instructor__tab {
+  margin-bottom: 120px;
+}
+
+.Instructor__h2 {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #140342;
+}
+
+.Instructor__description {
+  max-height: 260px;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 94.82%
+  );
+}
+
+.Instructor__showMore {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline;
+  color: #6440fb;
+}
+
+.Instructor__coursesCards{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Instructor__coursesCards:not(:last-child){
+  margin-right: 30px;
+}
