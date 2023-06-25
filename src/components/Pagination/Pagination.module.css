@@ -12,6 +12,7 @@
 }
 
 .Pagination__num {
+  cursor:pointer;
   width: 16px;
   font-style: normal;
   font-weight: 400;
@@ -21,6 +22,7 @@
 }
 
 .Pagination__current {
+  cursor:pointer;
   text-align: center;
   width: 16px;
   padding-bottom: 4px;

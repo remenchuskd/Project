@@ -6,7 +6,7 @@ type Props = {
   text: string;
   radius?: boolean;
   small?: boolean;
-  func?:Function
+  click?:Function
 };
 
 export default function Button({
@@ -15,7 +15,7 @@ export default function Button({
   text,
   radius,
   small,
-  func
+  click
 }: Props) {
   let buttonColorClass;
   let buttonOutlinedClass = outlined ? styles.Button_outlined : '';
@@ -23,7 +23,9 @@ export default function Button({
   let buttonSmallClass = small ? styles.Button_small : '';
 
   function Buttonclick(){
-    func();
+    if(click){
+      click()
+    }
   }
 
   switch (color) {

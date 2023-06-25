@@ -1,4 +1,4 @@
-.Instructors{
+.Instructors {
   padding: 100px 0;
 }
 
@@ -9,7 +9,7 @@
   color: #140342;
 }
 
-.Instructors__wrap{
+.Instructors__wrap {
   margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
@@ -17,21 +17,26 @@
 }
 
 .Instructors__descr {
-
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
   color: #4f547b;
 }
 
-.Instructors__cards{
+.Instructors__cards {
   display: flex;
+  position: relative;
 }
 
-.Instructors__card{
-    cursor: pointer;
+.Instructors__card:not(:last-child) {
+  margin-right: 30px;
 }
 
-.Instructors__card:not(:last-child){
-    margin-right: 30px;
+.Instructors__link{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 }

@@ -1,0 +1,61 @@
+.Instructors__h {
+  margin-top: 90px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 46px;
+  text-align: center;
+  color: #140342;
+}
+
+.Instructors__descr {
+  margin-bottom: 90px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 36px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #4f547b;
+}
+
+.Instructors__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.Instructors__results {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.Instructors__res {
+  color: #140342;
+}
+
+.Instructors__wrap {
+  display: flex;
+  align-items: center;
+}
+
+.Instructors__sort:not(:last-child) {
+  margin-right: 20px;
+}
+
+.Instructors__cards {
+  margin-bottom: 60px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Instructors__card:not(:nth-child(4n)) {
+  margin-right: 30px;
+}
+
+.Instructors__pagination {
+  width: 344px;
+  margin: 0 auto 150px;
+}

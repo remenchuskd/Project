@@ -3,14 +3,12 @@ import style from './Input.module.css';
 type props = {
   label: string;
   placeholder: string;
-  setName: Function;
+  setValue: Function;
 };
 
-export default function Input({ label, placeholder, setName }: props) {
-  let [value, setValue] = React.useState('');
+export default function Input({ label, placeholder, setValue }: props) {
 
   function handleChange(event: any) {
-    setName(event);
     setValue(event);
   }
   return (
@@ -19,7 +17,7 @@ export default function Input({ label, placeholder, setName }: props) {
         <div className={style.Input__label}>{label}</div>
         <input
           id={label}
-          onChange={(event) => handleChange(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           placeholder={placeholder}
           className={style.Input__input}
           type="text"

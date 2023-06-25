@@ -18,27 +18,33 @@ import Instructor from '@/components/Instructor/Instructor';
 import ReviewTab from '@/components/Reviewstab/Review';
 import Overview from '@/components/Overview/Overview';
 import { useRouter } from 'next/router';
+import { CategoriesContext } from '@/contexts/categoryContext';
+
+
+
+export async function getServerSideProps() {
+  let response = await fetch("http://localhost:3000/api/getCategories");
+  let categories = await response.json();
+
+  return {
+    props: {
+      categories: categories,
+    },
+  };
+}
 
 export default function course(props: any) {
-  const router = useRouter();
-  const id = router.query.id;
-  let data = {
-    id: 1,
-    image:
-      'https://koshka.top/uploads/posts/2021-12/1638771511_1-koshka-top-p-milogo-kotika-v-shapochke-1.jpg',
-    text: 'Карточка курса название1',
-    description: 'Описание курса Карточка курса название1 ',
-    lesson: 'Урок1',
-    level: 'Уровень1',
-    time: '1,5',
-    author: 'Автор1',
-    price: 123,
-    rating: 4.5,
-    qnty: 199,
-    tag: ['popular', 'new', 'bestseller'],
-    students: 853,
-    update: '11/2022',
+  let router=useRouter();
+  let id=router.query.id;
+  let [data,setData]=React.useState([])
+
+  async function Course(){
+    let response=await fetch(`http://localhost:3000/api/getCourses?populate=channels&id=${id}`)
+    let data=await response.json()
+    setData(data.data)
+    console.log(data.data[0].attributes.name_ru)
   };
+  Course()
 
   let accordion = {
     title: ['название', 'название', 'название', 'название'],
@@ -46,8 +52,11 @@ export default function course(props: any) {
     description: ['описание', 'описание', 'описание', 'описание'],
   };
 
+
+
   return (
-    <Layout>
+    <CategoriesContext.Provider value={props.categories} >
+          <Layout  >
       <ColorBlock color={'lightblue'}>
         <Container>
           <div className={style.BreadCrumbs}>
@@ -55,7 +64,7 @@ export default function course(props: any) {
           </div>
 
           <div className={style.Course}>
-            <div className={style.Course__tags}>
+            {/* <div className={style.Course__tags}>
               {data.tag.map((tag, key) => {
                 return (
                   <div key={key}  className={style.Course__tag}>
@@ -64,11 +73,11 @@ export default function course(props: any) {
                   </div>
                 );
               })}
-            </div>
-            <div className={style.Course__h}> {data.text} </div>
-            <div className={style.Course__descr}> {data.description} </div>
+            </div> */}
+            <div className={style.Course__h}> {data[0]?.attributes.name_ru} </div>
+            <div className={style.Course__descr}> {data[0]?.attributes.description_ru} </div>
             <div className={style.Course__info}>
-              <div className={style.Course__item}>
+              {/* <div className={style.Course__item}>
                 <span className={style.Course__infoelem}>
                   <Rating rating={data.rating} />{' '}
                 </span>
@@ -76,22 +85,22 @@ export default function course(props: any) {
                   <Star size={'small'} qnty={5} />{' '}
                 </span>{' '}
                 <Review review={data.qnty} />
-              </div>
-              <div className={style.Course__item}>
+              </div> */}
+              {/* <div className={style.Course__item}>
                 <span className={style.Course__infoelem}>
                   <Icon type={'student'} />{' '}
                 </span>{' '}
                 {data.students} Студентов занимаются на курсе
-              </div>
+              </div> */}
               <div className={style.Course__item}>
                 <span className={style.Course__infoelem}>
                   <Icon type={'clock'} />{' '}
                 </span>
-                Последнее обновление {data.update}
+                Последнее обновление {data[0]?.attributes.updatedAt}
               </div>
             </div>
             <div className={style.Course__author}>
-              <Image src="" alt="" width="0" height="0" /> {data.author}
+              <Image src="" alt="" width="0" height="0" /> {data[0]?.channels?.data[0].attributes.name_ru}
             </div>
           </div>
         </Container>
@@ -107,7 +116,10 @@ export default function course(props: any) {
               <Overview />
             </Tab>
             <Tab>
-              <Instructor />
+              <Instructor 
+              name={data[0]?.channels?.data[0].attributes.name_ru} 
+              course={data[0]?.attributes.name_ru} 
+              description={data[0]?.channels?.data[0].attributes.description_ru}/>
             </Tab>
             <Tab>
               <ReviewTab />
@@ -116,5 +128,7 @@ export default function course(props: any) {
         </div>
       </Container>
     </Layout>
+    </CategoriesContext.Provider>
+
   );
 }

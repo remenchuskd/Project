@@ -1,5 +1,9 @@
-.Card {
+.Card.small {
   width: 300px;
+}
+
+.Card.large {
+  width: 410px;
 }
 
 .Card__img {
@@ -12,6 +16,12 @@
   overflow: hidden;
   background-image: url(/cardImage.png);
   background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.Card__img.large {
+  width: 410px;
+  height: 287px;
 }
 
 .Card__tag {
@@ -29,11 +39,11 @@
   margin-bottom: 10px;
 }
 
-.Card__ratingElem:not(:last-child){
+.Card__ratingElem:not(:last-child) {
   margin-right: 10px;
 }
 
-.Card__text {
+.Card__text{
   margin-bottom: 10px;
   font-weight: 400;
   font-size: 17px;
@@ -42,11 +52,23 @@
   color: #140342;
 }
 
+.Card__text.large {
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #140342;
+}
+
 .Card__info {
   box-sizing: border-box;
   padding-bottom: 10px;
   display: flex;
   align-items: center;
+}
+
+.Card__info.large{
+  padding-bottom: 15px;
 }
 
 .Card__icon {
@@ -71,6 +93,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 0 4px;
+}
+
+.Card__commerce.large{
+  padding: 15px 0 ;
 }
 
 .Card__author {
