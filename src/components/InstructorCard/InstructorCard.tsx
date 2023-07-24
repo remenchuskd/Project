@@ -5,6 +5,7 @@ import Icon from "../Icon/Icon";
 import Rating from "../Rating/Rating";
 import Star from "../Stars/Stars";
 type Props = {
+  id: number;
   instructor: string;
   position?: string;
   image: any;
@@ -15,11 +16,9 @@ type Props = {
 };
 
 export default function InstructorCard({
+  id,
   instructor,
-  position,
   image,
-  rate,
-  students,
   course,
   outlined,
 }: Props) {
@@ -27,10 +26,12 @@ export default function InstructorCard({
 
   return (
     <div className={`${style.Instructor} ${InstructorOutlinedClass} `}>
+      <Link className={style.Instructor__link} href={`/instructors/${id}`}/>
       <div
         className={`${style.Instructor__img} ${InstructorOutlinedClass} `}
         style={image ? { backgroundImage: `url(${image})` } : {}}
       >
+        
         <div className={style.Instructor__wrap}>
           <div className={style.Instructor__social}>
             <Link className={style.Instructor__icon} href="">
@@ -46,7 +47,6 @@ export default function InstructorCard({
         </div>
       </div>
       <div className={style.Instructor__name}>{instructor}</div>
-      <div className={style.Instructor__position}>{position}</div>
       <div className={style.Instructor__info}>
         {/* <div className={style.Instructor__elem}>
           <Rating rating={rate} />
@@ -61,15 +61,7 @@ export default function InstructorCard({
               <Icon type={"dislike"} />
             </div>
           </div>
-        </div>
-
-        <div className={style.Instructor__elem}>
-          <div className={style.Instructor__svg}>
-              <Icon type={"student"} />
-
-          </div>
-          {students} Cтуденты
-        </div> */}
+        </div>*/}
 
         <div className={style.Instructor__elem}>
           <span className={style.Instructor__svg}>

@@ -28,10 +28,13 @@ export default function Login(){
             throw Error(JSON.stringify(data.error));
           } else {
             setCompleteLogin(true);
+            console.log(11111,data)
             let name = data.user.username;
             let token = data.jwt;
+            let id=data.user.id
             useCookie("login", name);
             useCookie("token", token);
+            useCookie('id',id)
             window.location.href = "/";
           }
         }catch{

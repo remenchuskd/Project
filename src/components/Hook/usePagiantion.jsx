@@ -17,7 +17,13 @@ export default function usePagiantion({
   let leftItemCount = 0;
   let leftRange = [];
 
-  if (currentPage === 1) {
+  if (pageCount < 4) {
+    let arr = [];
+    for (let i = 0; i < pageCount; i++) {
+      arr.push(i + 1);
+    }
+    return arr;
+  } else if (currentPage === 1) {
     leftItemCount = currentPage + siblingCount + 2;
     for (let i = leftSiblingIndex; i < leftItemCount; i++) {
       leftRange.push(i);

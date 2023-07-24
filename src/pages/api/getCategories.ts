@@ -9,7 +9,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   async function getCategories() {
-    let response = await fetch("http://51.250.107.131:1337/api/categories/?populate=childrens&filters[parents][id][$null]=true",
+    let response = await fetch("https://courseapi.plza.ru/api/categories/?populate=childrens&filters[parents][id][$null]=true",
     {
       headers: {
         Authorization:
@@ -19,6 +19,5 @@ export default async function handler(
     return data;
   }
   let categories = await getCategories();
-
   res.status(200).json(categories.data);
 }

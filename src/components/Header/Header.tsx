@@ -66,7 +66,15 @@ export default function Header() {
               <Dropdown vertical={true} data={data} />
             </div>
           </div>
-          <div className={`${style.Header__nav} ${style.Pages}`}>
+          <div className={style.Header__nav}>
+            <Link
+              className={`${style.Header__link} ${style.Header__navElement}`}
+              href="/instructors"
+            >
+              Инструкторы
+            </Link>
+          </div>
+          {/* <div className={`${style.Header__nav} ${style.Pages}`}>
             <div className={style.Header__navElement}>Страницы</div>
             <span className={style.Header__dropdown_svg}>
               <Icon type={"tick"} />
@@ -76,7 +84,7 @@ export default function Header() {
             >
               <Dropdown data={[]} vertical={false} />
             </div>
-          </div>
+          </div> */}
           <div className={style.Header__nav}>
             <Link
               className={`${style.Header__link} ${style.Header__navElement}`}

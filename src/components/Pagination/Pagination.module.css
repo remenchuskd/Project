@@ -6,9 +6,9 @@
 
 .Pagiantion__pages{
   margin: 0 41px;
-  width: 172px;
+  max-width: 172px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .Pagination__num {
@@ -21,7 +21,12 @@
   color: #140342;
 }
 
+.Pagination__num:not(:last-child){
+  margin-right: 23px;
+}
+
 .Pagination__current {
+  margin-right: 23px;
   cursor:pointer;
   text-align: center;
   width: 16px;

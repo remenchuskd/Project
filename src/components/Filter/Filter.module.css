@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.Filter__descr.active {
+  height: 250px;
+  overflow-y: scroll;
+}
+
 .Filter__wrap {
   display: flex;
   justify-content: space-between;
@@ -32,18 +37,15 @@
   align-items: center;
 }
 
-
-
 .Filter__rate {
   display: none;
   margin-left: 10px;
 }
 
 .Filter__rate.active,
-.Filter__ratetext.active{
-    display: block;
-  }
-
+.Filter__ratetext.active {
+  display: block;
+}
 
 .Filter__name {
   margin-left: 10px;

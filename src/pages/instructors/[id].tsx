@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/Layout/Layout";
-import Button from "@/components/Button/Button";
+// import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
 import Tab from "@/components/Tabs/Tabs";
 import Tabpanel from "@/components/Tabpanel/Tabpanel";
@@ -14,36 +14,79 @@ import style from "./instructor.module.css";
 import { CategoriesContext } from "@/contexts/categoryContext";
 import { useRouter } from "next/router";
 import Textarea from "@/components/Textarea/Textarea";
+import { Button, Loading } from "@nextui-org/react";
 type Data = {
   attributes?: { description: string; courses: {} };
 };
 
 type User = {
   login?: string;
-  jwt?: string;
+  jwt: string;
+  id: string;
 };
-export async function getServerSideProps() {
-  let response = await fetch("http://localhost:3000/api/getCategories");
+export async function getServerSideProps(context: any) {
+  let id = context.query.id;
+  let request = await fetch("http://localhost:3000/api/getCategories");
+  let request2 = await fetch(
+    `http://localhost:3000/api/getInstructors?populate=courses&id=${id}`
+  );
+  let request3 = await fetch(
+    `http://localhost:3000/api/getComments?id=${id}&populate=*`
+  );
+  let [response, response2, response3] = await Promise.all([
+    request,
+    request2,
+    request3,
+  ]);
   let categories = await response.json();
+  let instructors = await response2.json();
+  let comments = await response3.json();
   return {
     props: {
       categories: categories,
+      instructors: instructors,
+      comments: comments,
     },
   };
 }
 
 export default function Instructor(props: any) {
   let [hide, setHide] = React.useState(true);
-  let [data, setData] = React.useState<Data>({});
-  let [courses, serCousres] = React.useState([]);
+  let [data, setData] = React.useState(props.instructors);
+  let [comments, setComments] = React.useState(props.comments.data);
   let ref = React.useRef(null);
-  let router = useRouter();
-  let id = router.query.id;
   let [user, setUser] = React.useState<User>();
   let [cookie, setCookie] = React.useState(
     isBrowser() ? window.document.cookie : ""
   );
-  let [review,setReview]=React.useState('');
+  let [activeButton, setActiveButton] = React.useState(true);
+  let [resetComment, setResetComment] = React.useState(false);
+  let [review, setReview] = React.useState("");
+
+  React.useEffect(() => {
+    let objCookie = {};
+    // @ts-ignore
+    cookie
+      .split("; ")
+      .map((item) => {
+        return item.split("=");
+      }) // @ts-ignore
+      .forEach((arr) => (objCookie[arr[0]] = arr[1]));
+    // @ts-ignore
+    setUser(objCookie);
+  }, [cookie]);
+
+  React.useEffect(() => {
+    if (ref.current) {
+      if (hide === true) {
+        // @ts-ignore
+        ref.current.style.height = 260 + "px";
+      } else {
+        // @ts-ignore
+        ref.current.style.height = 100 + "%";
+      }
+    }
+  }, [hide]);
 
   function isBrowser() {
     if (typeof window !== "undefined") {
@@ -53,29 +96,6 @@ export default function Instructor(props: any) {
     }
   }
 
-  React.useEffect(() => {
-    let objCookie = {};
-    // @ts-ignore
-    cookie
-      .split(";")
-      .map((item) => {
-        return item.split("=");
-      })
-      .forEach((arr) => (objCookie[arr[0]] = arr[1]));
-    // @ts-ignore
-    setUser(objCookie);
-  }, [cookie]);
-
-  React.useEffect(() => {
-    if (ref.current) {
-      if (hide === true) {
-        ref.current.style.height = 260 + "px";
-      } else {
-        ref.current.style.height = 100 + "%";
-      }
-    }
-  }, [hide]);
-
   function hidden() {
     if (hide === true) {
       setHide(false);
@@ -83,34 +103,32 @@ export default function Instructor(props: any) {
       setHide(true);
     }
   }
-  async function getInstructor() {
-    let response = await fetch(
-      `http://localhost:3000/api/getInstructors?populate=courses&id=${id}`
-    );
-    let data = await response.json();
-    setData(data.data[0].attributes);
-    serCousres(data.data[0].attributes.courses.data);
-  }
-  getInstructor();
 
-  async function onClick() {
-    let response = await fetch(
-      `http://localhost:3000/api/getComments`,
-      {
-        method:'POST',
+  function onClick() {
+    setActiveButton(false);
+    setResetComment(true);
+    async function comments() {
+      let request = await fetch(`http://localhost:3000/api/postComments`, {
+        method: "POST",
         body: JSON.stringify({
-          user: `${user?.login}`,
+          user: `${user.id}`,
           text: `${review}`,
-          channel: `${user?.login}`,
+          channel: data.data[0].id,
         }),
-      }
-    );
-    let data = await response.json();
-    console.log(data)
+      });
+      let response = await request.json();
+      setComments((prev: any) => {
+        return [...prev, response.data];
+      });
+      setActiveButton(true);
+      setResetComment(false);
+    }
+
+    comments();
   }
 
-  function click(){
-    onClick()
+  function click() {
+    onClick();
   }
 
   return (
@@ -127,7 +145,9 @@ export default function Instructor(props: any) {
               <div className={style.Instructor__card}>
                 <div className={style.Instructor__img}></div>
                 <div className={style.Instructor__descr}>
-                  <div className={style.Instructor__name}>{data.name_ru}</div>
+                  <div className={style.Instructor__name}>
+                    {data.data[0].attributes.name_ru}
+                  </div>
                   <div className={style.Instructor__prof}></div>
                   <div className={style.Instructor__info}>
                     <div className={style.Instructor__item}>
@@ -154,7 +174,7 @@ export default function Instructor(props: any) {
                       <span className={style.Instructor__infoelem}>
                         <Icon type={"course_white"} />{" "}
                       </span>
-                      {courses.length} Курс
+                      {data.data[0].attributes.courses.data.length} Курс
                     </div>
                   </div>
                   <div className={style.Instructor__wrap}>
@@ -184,10 +204,7 @@ export default function Instructor(props: any) {
               <div className={style.Instructor__tab}>
                 <div className={style.Instructor__h2}>Описание</div>
                 <div ref={ref} className={style.Instructor__description}>
-                  {
-                    // @ts-ignore
-                    data.attributes?.description
-                  }
+                  {data.data[0].attributes.description}
                 </div>
                 <div onClick={hidden} className={style.Instructor__showMore}>
                   {" "}
@@ -197,34 +214,80 @@ export default function Instructor(props: any) {
             </Tabpanel>
             <Tabpanel>
               <div className={style.Instructor__tab}>
+                <div className={style.Instructor__h2}>Курсы</div>
                 <div className={style.Instructor__coursesCards}>
-                  {courses.map((card, key) => {
-                    return (
-                      <div className={style.Instructor__coursesCards}>
-                        <Card
-                          size={"large"}
-                          image={card.attributes.ch_image}
-                          id={card.id}
-                          text={card.attributes.name_ru}
-                          // lesson={card.lesson}
-                          author={data.name_ru}
-                        />
-                      </div>
-                    );
-                  })}
+                  {
+                    // @ts-ignore
+                    data.data[0].attributes.courses.data.map((card, key) => {
+                      return (
+                        <div className={style.Instructor__coursesCards}>
+                          <Card
+                            size={"large"}
+                            image={card.attributes.ch_image}
+                            id={card.id}
+                            text={card.attributes.name_ru}
+                            author={data.name_ru}
+                          />
+                        </div>
+                      );
+                    })
+                  }
                 </div>
               </div>
             </Tabpanel>
             <Tabpanel>
-              <div>Отзывы</div>
-              <Textarea
-                label={""}
-                name={"отзывы"}
-                placeholder={"Оставьте свой отзыв"}
-                setText={setReview}
-              />
-
-              <Button click={click} color={"blue"} text={"Отправить"} />
+              <div className={style.Instructor__reviews}>
+                <div className={style.Instructor__h2}>Отзывы студентов:</div>
+                <div className={style.Instructor__comments}>
+                  {comments.length > 0 &&
+                    comments.map(
+                      (comment: {
+                        attributes: {
+                          text: string;
+                          user: { attributes: { username: string } };
+                        };
+                      }) => {
+                        return (
+                          <div>
+                            <div className={style.Instructor__commentUser}>
+                              Студент{" "}
+                              {comment.attributes.user.data.attributes.username}
+                            </div>
+                            <div
+                              className={style.Instructor__commentInstructor}
+                            >
+                              Инструктор {data.data[0].attributes.name_ru}
+                            </div>
+                            <div className={style.Instructor__comment}>
+                              {" "}
+                              Отзыв: {comment.attributes.text}
+                            </div>
+                          </div>
+                        );
+                      }
+                    )}
+                </div>
+                <div className={style.Instructor__h2}>Написать отзыв</div>
+                <Textarea
+                  label={""}
+                  name={"отзывы"}
+                  placeholder={"Оставьте свой отзыв"}
+                  setText={setReview}
+                  text={resetComment ? "" : undefined}
+                />
+                <Button
+                  disabled={!activeButton ? true : false}
+                  onPress={click}
+                  color="gradient"
+                  size="md"
+                >
+                  {activeButton ? (
+                    "Отправить"
+                  ) : (
+                    <Loading type="spinner" color="currentColor" size="md" />
+                  )}
+                </Button>
+              </div>
             </Tabpanel>
           </Tab>
         </div>

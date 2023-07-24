@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/components/Layout/Layout";
 import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
-import style from "./courses.module.css";
+import style from "./categories.module.css";
 import Container from "@/components/Container/Container";
 import Filter from "@/components/Filter/Filter";
 import Pagination from "@/components/Pagination/Pagination";
@@ -29,7 +29,7 @@ export async function getServerSideProps(context: any) {
   };
 }
 
-export default function Courses(props: any) {
+export default function Categories(props: any) {
   let [ischecked, setIschecked] = React.useState();
   let [sort, setSort] = React.useState();
   let [currentPage, setCurrentPage] = React.useState(1);
@@ -47,32 +47,8 @@ export default function Courses(props: any) {
       `http://localhost:3000/api/getCourses?populate=channels&page=1&categoryId=${router.query.id}`
     );
     let data = await response.json();
-    console.log(data)
     setData(data);
   }
-
-  let elements = [
-    "искусство0",
-    "искусство1",
-    "искусство2",
-    "искусство3",
-    "искусство4",
-  ];
-  let qnty = [12, 12, 12, 12, 12];
-  let elements1 = [
-    "арт1",
-    "арт2",
-    "арт3",
-    "арт4",
-    "арт5",
-    "артарт6",
-    "арт1",
-    "арт1",
-    "арт1",
-  ];
-  let qnty1 = [13, 13, 13, 13, 13, 13, 13, 13, 13, 13];
-  let tag = ["all", "popular", "new", "bestseller"];
-  let rate = [4, 5, 4, 5, 4, 5, 4, 5];
 
   let [params, setParams] = React.useState({
     pageSize: 12,
@@ -112,46 +88,18 @@ export default function Courses(props: any) {
           </Container>
         </ColorBlock>
         <Container>
-          <div className={style.Courses__h}> Курсы</div>
+          <div className={style.Courses__h}> Категория: '{}'</div>
           <div className={style.Courses__wrap}>
             <div className={style.Courses__sidebar}>
               <div className={style.Courses__filter}>
                 <Filter
                   type={"checkbox"}
                   setIschecked={setIschecked}
-                  title={"Категории"}
-                  elements={elements}
-                  qntyInfo={qnty}
+                  title={"Автор"}
+                  data={data}
                 />
               </div>
-              <div className={style.Courses__filter}>
-                <Filter
-                  type={"radiobox"}
-                  setIschecked={setIschecked}
-                  title={"Категория2"}
-                  elements={rate}
-                  qntyInfo={qnty1}
-                  rate={true}
-                />
-              </div>
-              <div className={style.Courses__filter}>
-                <Filter
-                  type={"checkbox"}
-                  setIschecked={setIschecked}
-                  title={"Категории"}
-                  elements={elements}
-                  qntyInfo={qnty}
-                />
-              </div>
-              <div className={style.Courses__filter}>
-                <Filter
-                  type={"radiobox"}
-                  setIschecked={setIschecked}
-                  title={"Категория2"}
-                  elements={elements1}
-                  qntyInfo={qnty1}
-                />
-              </div>
+              
             </div>
             <div className={style.Courses__cards}>
               <div className={style.Courses__top}>
@@ -162,11 +110,11 @@ export default function Courses(props: any) {
                   </span>{" "}
                   результатов
                 </div>
-                <Sort data={tag} onChange={setSort} />
+                {/* <Sort data={tag} onChange={setSort} /> */}
               </div>
               <div className={style.Courses__cardslist}>
-                {data.data.map((card, key) => {
-                  // console.log(card.attributes.channels.data[0].attributes.name_ru)
+                {// @ts-ignore
+                data.data.map((card, key) => {
                   return (
                     <div key={key} className={style.Courses__card}>
                       <Link

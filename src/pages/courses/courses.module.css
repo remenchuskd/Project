@@ -59,6 +59,7 @@
 }
 
 .Courses__card {
+  width:300px;
   margin-right: 30px;
   margin-bottom: 20px;
   position: relative;

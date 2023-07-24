@@ -7,10 +7,10 @@ type Data = {
 type Params = {
   "pagination[pageSize]"?: string;
   "pagination[page]"?: any;
-  'sort'?: any;
+  sort?: any;
   "filters[name_ru][$containsi]"?: any;
   "filters[id][$eq]"?: any;
-  'populate'?: any;
+  populate?: any;
 };
 
 export default async function handler(
@@ -46,9 +46,8 @@ export default async function handler(
       return item.join("=");
     });
     let result = queryParams.join("&");
-
     let response = await fetch(
-      `http://51.250.107.131:1337/api/channels?${result}`,
+      `https://courseapi.plza.ru/api/channels?${result}`,
       {
         headers: {
           Authorization:
@@ -56,10 +55,11 @@ export default async function handler(
         },
       }
     );
+    console.log(response)
     let data = await response.json();
     return data;
   }
-
+  
   let instructors = await getInstructors();
 
   res.status(200).json(instructors);

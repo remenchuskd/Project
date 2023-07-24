@@ -55,10 +55,8 @@ export default function Instructor({ name, course, description }: props) {
         </div>
       </div>
       <div className={style.Instructor__descr}>
-        {description
-          ? description
-          : "Еще в 2010 году я начал мозговой штурм с желанием разрабатывать привлекательные и привлекательные приложения. За более чем 7 лет я разработал множество высококлассных веб-приложений и приложений для iPhone."}
-      </div>
+        {description}
+        </div>
     </div>
   );
 }

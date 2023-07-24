@@ -1,14 +1,16 @@
+import qs from "qs";
 import type { NextApiRequest, NextApiResponse } from "next";
 type Data = {
   value: any;
 };
 type Params = {
-  'populate'?: string;
+  populate?: string;
   "filters[categories][id][$eq]"?: string;
   "filters[id][$eq]"?: string;
   "pagination[pageSize]"?: string;
   "pagination[page]"?: any;
-  'sort'?: any;
+  sort?: any;
+  "filters[channels][id][$eq]"?: any;
 };
 
 export default async function handler(
@@ -16,39 +18,33 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   async function getCourses() {
-    let params: Params = {};
-    if (req.query.pageSize) {
-      if (typeof req.query.pageSize === "string") {
-        params["pagination[pageSize]"] = req.query.pageSize;
-      } else {
-        params["pagination[pageSize]"] = req.query.pageSize[0];
-      }
-    }
-    if (req.query.page) {
-      params["pagination[page]"] = req.query.page;
-    }
-    if (req.query.sort) {
-      params["sort"] = `name_ru:${req.query.sort}`;
-    }
-    if (req.query.categoryId) {
-      params["filters[categories][id][$eq]"] = req.query.categoryId as string;
-    }
-
-    if (req.query.id) {
-      params["filters[id][$eq]"] = req.query.id as string;
-    }
-
-    if (req.query.populate) {
-      params["populate"] = req.query.populate as string;
-    }
-
-    let queryParams = Object.entries(params).map((item) => {
-      return item.join("=");
+    const query = qs.stringify({
+      populate: req.query.populate,
+      filters: {
+        channels: {
+          id: {
+            $in: req.query.instructorId,
+          },
+        },
+        id: {
+          $eq: req.query.id,
+        },
+        categories: {
+          id: {
+            $eq: req.query.categoryId,
+          },
+        },
+      },
+      pagination: {
+        page: req.query.page,
+        pageSize: req.query.pageSize,
+      },
+      sort: [`name_ru:${req.query.sort||'asc'}`],
+      encodeValuesOnly: true,
     });
-    let result = queryParams.join("&");
 
     let response = await fetch(
-      `http://51.250.107.131:1337/api/courses?${result}`,
+      `https://courseapi.plza.ru/api/courses?${query}`,
       {
         headers: {
           Authorization:

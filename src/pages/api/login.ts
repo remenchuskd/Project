@@ -10,7 +10,7 @@ export default async function handler(
 ) {
   async function login() {
     let body = JSON.parse(req.body);
-    let response = await fetch("http://51.250.107.131:1337/api/auth/local/", {
+    let response = await fetch("https://courseapi.plza.ru/api/auth/local/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

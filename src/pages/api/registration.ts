@@ -11,7 +11,7 @@ export default async function handler(
   async function registration() {
     let body=JSON.parse(req.body)
     let response = await fetch(
-      "http://51.250.107.131:1337/api/auth/local/register",
+      "https://courseapi.plza.ru/api/auth/local/register",
       {
         method: "POST",
         headers: {

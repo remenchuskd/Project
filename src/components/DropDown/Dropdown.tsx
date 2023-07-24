@@ -15,13 +15,14 @@ export default function Dropdown({ vertical, data }: Props) {
     <div className={`${style.Dropdown} ${Vertical}`}>
       {data.map((column, key) => {
         return (
-          <div key={key} className={`${style.Dropdown__column} ${Vertical}`}>
-            <div
-              onMouseEnter={() => {
-                setId(column.id);
-              }}
-              className={`${style.Dropdown__name} ${Vertical}`}
-            >
+          <div
+            onMouseEnter={() => {
+              setId(column.id);
+            }}
+            key={key}
+            className={`${style.Dropdown__column} ${Vertical}`}
+          >
+            <div className={`${style.Dropdown__name} ${Vertical}`}>
               {column.attributes.name_ru}
             </div>
             <span className={`${style.Dropdown__column_svg} ${Vertical}`}>
@@ -35,7 +36,7 @@ export default function Dropdown({ vertical, data }: Props) {
                   })[0]
                   .attributes.childrens.data.map(
                     (
-                      link: { id:string, attributes: { name_ru: string } },
+                      link: { id: string; attributes: { name_ru: string } },
                       key: number
                     ) => {
                       return (
