@@ -1,19 +1,19 @@
-import React from "react";
-import Layout from "@/components/Layout/Layout";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
-import style from "./categories.module.css";
-import Container from "@/components/Container/Container";
-import Filter from "@/components/Filter/Filter";
-import Pagination from "@/components/Pagination/Pagination";
-import Sort from "@/components/Sort/Sort";
-import Card from "@/components/CardCourse/CardCourse";
-import ColorBlock from "@/components/ColorBlock/ColorBlock";
-import { CategoriesContext } from "@/contexts/categoryContext";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React from 'react';
+import Layout from '@/components/Layout/Layout';
+import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
+import style from './categories.module.css';
+import Container from '@/components/Container/Container';
+import Filter from '@/components/Filter/Filter';
+import Pagination from '@/components/Pagination/Pagination';
+import Sort from '@/components/Sort/Sort';
+import Card from '@/components/CardCourse/CardCourse';
+import ColorBlock from '@/components/ColorBlock/ColorBlock';
+import { CategoriesContext } from '@/contexts/categoryContext';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export async function getServerSideProps(context: any) {
-  let request = fetch("http://localhost:3000/api/getCategories");
+  let request = fetch('http://localhost:3000/api/getCategories');
   let id = context.query.id;
   let request2 = fetch(
     `http://localhost:3000/api/getCourses?populate=channels&page=1&categoryId=${id}`
@@ -39,8 +39,8 @@ export default function Categories(props: any) {
   let [params, setParams] = React.useState({
     pageSize: 12,
     currentPage: 1,
-    sort: "asc",
-    search: "",
+    sort: 'asc',
+    search: '',
   });
 
   React.useEffect(() => {
@@ -59,7 +59,7 @@ export default function Categories(props: any) {
     async function getPage() {
       let response = await fetch(
         `http://localhost:3000/api/getCourses?populate=channels&sort=${
-          params.sort || "asc"
+          params.sort || 'asc'
         }&pageSize=${params.pageSize}&page=${params.currentPage}&categoryId=${
           router.query.id
         }`
@@ -73,13 +73,13 @@ export default function Categories(props: any) {
   return (
     <CategoriesContext.Provider value={props.categories}>
       <Layout>
-        <ColorBlock color={"lightblue"}>
+        <ColorBlock color={'lightblue'}>
           <Container>
             <div className={style.BreadCrumbs}>
               <BreadCrumbs
                 data={[
-                  { text: "Hello", link: "/" },
-                  { text: "All courses", link: "/courses" },
+                  { text: 'Hello', link: '/' },
+                  { text: 'All courses', link: '/courses' },
                 ]}
               />
             </div>
@@ -91,9 +91,9 @@ export default function Categories(props: any) {
             <div className={style.Courses__sidebar}>
               <div className={style.Courses__filter}>
                 <Filter
-                  type={"checkbox"}
+                  type={'checkbox'}
                   setIschecked={setIschecked}
-                  title={"Автор"}
+                  title={'Автор'}
                   data={data}
                 />
               </div>
@@ -101,10 +101,10 @@ export default function Categories(props: any) {
             <div className={style.Courses__cards}>
               <div className={style.Courses__top}>
                 <div className={style.Courses__total}>
-                  Всего{" "}
+                  Всего{' '}
                   <span className={style.Courses__total_res}>
                     {data.meta.pagination.total}
-                  </span>{" "}
+                  </span>{' '}
                   результатов
                 </div>
                 {/* <Sort data={tag} onChange={setSort} /> */}
