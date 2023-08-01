@@ -1,9 +1,9 @@
-import React from "react";
-import style from "./Instructor.module.css";
-import Image from "next/image";
-import Icon from "../Icon/Icon";
-import Star from "../Stars/Stars";
-import Rating from "../Rating/Rating";
+import React from 'react';
+import style from './Instructor.module.css';
+import Image from 'next/image';
+import Icon from '../Icon/Icon';
+import Star from '../Stars/Stars';
+import Rating from '../Rating/Rating';
 type props = {
   name: string;
   course: string;
@@ -29,24 +29,24 @@ export default function Instructor({ name, course, description }: props) {
 
           <div className={style.Instructor__social}>
             <div className={style.Instructor__elem}>
-              <Star size={"small"} qnty={1} />
+              <Star size={'small'} qnty={1} />
               <span className={style.Instructor__rate}>
-                {" "}
+                {' '}
                 <Rating rating={4} />
               </span>
 
               <span className={style.Instructor__text}>{}Рейтинг </span>
             </div>
             <div className={style.Instructor__elem}>
-              <Icon type={"comment"} />
+              <Icon type={'comment'} />
               <span className={style.Instructor__text}>{}Отзывы </span>
             </div>
             <div className={style.Instructor__elem}>
-              <Icon type={"student"} />
+              <Icon type={'student'} />
               <span className={style.Instructor__text}>{}Студенты </span>
             </div>
             <div className={style.Instructor__elem}>
-              <Icon type={"course"} />
+              <Icon type={'course'} />
               <span className={style.Instructor__text}>{course} </span>
             </div>
             <div className={style.Instructor__elem}></div>
@@ -55,10 +55,8 @@ export default function Instructor({ name, course, description }: props) {
         </div>
       </div>
       <div className={style.Instructor__descr}>
-        {description
-          ? description
-          : "Еще в 2010 году я начал мозговой штурм с желанием разрабатывать привлекательные и привлекательные приложения. За более чем 7 лет я разработал множество высококлассных веб-приложений и приложений для iPhone."}
-      </div>
+        {description}
+        </div>
     </div>
   );
 }

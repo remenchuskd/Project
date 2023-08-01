@@ -1,12 +1,12 @@
-import React from "react";
-import Button from "../Button/Button";
-import Search from "../Search/Search";
-import style from "./Header2.module.css";
-import Link from "next/link";
-import ButtonIcon from "../ButtonIcon/ButtonIcon";
-import Icon from "../Icon/Icon";
-import Dropdown from "../DropDown/Dropdown";
-import { CategoriesContext } from "../../contexts/categoryContext";
+import React from 'react';
+import Button from '../Button/Button';
+import Search from '../Search/Search';
+import style from './Header2.module.css';
+import Link from 'next/link';
+import ButtonIcon from '../ButtonIcon/ButtonIcon';
+import Icon from '../Icon/Icon';
+import Dropdown from '../DropDown/Dropdown';
+import { CategoriesContext } from '../../contexts/categoryContext';
 
 export default function Header2() {
   let data = React.useContext(CategoriesContext);
@@ -30,7 +30,7 @@ export default function Header2() {
           Курсы
         </Link>
         <span className={style.Header__dropdown_svg}>
-          <Icon type={"tick"} />
+          <Icon type={'tick'} />
         </span>
         <div
           className={`${style.Header__dropdownCourses} ${style.Header__dropdown}`}
@@ -41,7 +41,7 @@ export default function Header2() {
       <div className={`${style.Header__nav} ${style.Pages}`}>
         <div className={style.Header__navElement}>Страницы</div>
         <span className={style.Header__dropdown_svg}>
-          <Icon type={"tick"} />
+          <Icon type={'tick'} />
         </span>
         <div
           className={`${style.Header__dropdownPages} ${style.Header__dropdown}`}
@@ -67,7 +67,7 @@ export default function Header2() {
             Войти
           </Link>
         </div>
-        <Button text={"Регистрация"} color={"darkblue"} radius={true} />
+        <Button text={'Регистрация'} color={'darkblue'} radius={true} />
       </div>
     </div>
   );

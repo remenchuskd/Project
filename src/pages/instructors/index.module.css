@@ -51,8 +51,22 @@
   flex-wrap: wrap;
 }
 
+.Instructors__card{
+  position: relative;
+  width: 300px;
+}
+
 .Instructors__card:not(:nth-child(4n)) {
   margin-right: 30px;
+}
+
+.Instructors__link{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 }
 
 .Instructors__pagination {

@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import React from "react";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import React from 'react';
 type Data = {
   value: any;
 };
@@ -10,10 +10,10 @@ export default async function handler(
 ) {
   async function login() {
     let body = JSON.parse(req.body);
-    let response = await fetch("http://51.250.107.131:1337/api/auth/local/", {
-      method: "POST",
+    let response = await fetch('https://courseapi.plza.ru/api/auth/local/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         identifier: `${body.username}`,

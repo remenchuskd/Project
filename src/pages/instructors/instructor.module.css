@@ -106,6 +106,7 @@
 }
 
 .Instructor__description {
+  min-height: 0px;
   max-height: 260px;
   margin-bottom: 15px;
   font-weight: 400;
@@ -129,11 +130,47 @@
   color: #6440fb;
 }
 
-.Instructor__coursesCards{
+.Instructor__coursesCards {
   display: flex;
   flex-wrap: wrap;
 }
 
-.Instructor__coursesCards:not(:last-child){
+.Instructor__coursesCards:not(:last-child) {
   margin-right: 30px;
 }
+
+.Instructor__reviews{
+  margin: 20px 0 100px;
+}
+
+.Instructor__comments {
+  margin: 15px 0;
+}
+
+.Instructor__comment {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.Instructor__commentUser{
+  margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 26px;
+    color: #140342;
+}
+
+.Instructor__commentInstructor{
+  margin-top: 10px;
+margin-bottom: 10px;
+font-weight: 400;
+font-size: 15px;
+line-height: 17px;
+color: #140342;
+}
+
+
+

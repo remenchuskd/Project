@@ -9,7 +9,7 @@ type props={
 }
 
 
-export default function Sort({data, onChange,text}:props){
+export default function Sort({data, onChange, text}:props){
     return(
         <div className={style.Sort}>
             <span className={style.Sort__desr}> {text}</span>

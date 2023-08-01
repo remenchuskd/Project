@@ -4,19 +4,19 @@ import Link from 'next/link';
 import Checkbox from '@/components/Checkbox/Checkbox';
 import Input from '@/components/Input/Input';
 import Icon from '@/components/Icon/Icon';
-import useCookie from '../Hook/useCookie';
+import UseCookie from '../Hook/useCookie';
 
 export default function Login(){
     let [login, setLogin] = React.useState('');
     let [password, setPassword] = React.useState('');
     let [remember, setRemember] = React.useState();
-    let [completeLogin,setCompleteLogin]=React.useState(false);
-    let[error,setError]=React.useState(false);
+    let [completeLogin, setCompleteLogin]=React.useState(false);
+    let[error, setError]=React.useState(false);
 
     async function getLogin() {
         try{
-          let response= await fetch("http://localhost:3000/api/login", {
-            method: "POST",
+          let response= await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
             body: JSON.stringify({
               username: `${login}`,
               password: `${password}`,
@@ -28,14 +28,17 @@ export default function Login(){
             throw Error(JSON.stringify(data.error));
           } else {
             setCompleteLogin(true);
+            console.log(11111, data);
             let name = data.user.username;
             let token = data.jwt;
-            useCookie("login", name);
-            useCookie("token", token);
-            window.location.href = "/";
+            let id=data.user.id;
+            UseCookie('login', name);
+            UseCookie('token', token);
+            UseCookie('id', id);
+            window.location.href = '/';
           }
         }catch{
-          setError(true)
+          setError(true);
         }
     }
 
@@ -52,7 +55,7 @@ export default function Login(){
             </div>
             <div className={style.Login__info}>
               <div className={`${style.Login__error} ${
-                  error ? style.visible : ""
+                  error ? style.visible : ''
                 }`}>
                   Неправильно введен логин или пароль
               </div>
@@ -91,5 +94,5 @@ export default function Login(){
                 <button className={style.Login__btnGoogle}> <Icon type={'google'} /> Войти с помощью  </button>
             </div>
           </div>
-    )
+    );
 }

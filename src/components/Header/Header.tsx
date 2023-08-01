@@ -1,24 +1,24 @@
-import React from "react";
-import Button from "../Button/Button";
-import Search from "../Search/Search";
-import style from "./Header.module.css";
-import Link from "next/link";
-import ButtonIcon from "../ButtonIcon/ButtonIcon";
-import Icon from "../Icon/Icon";
-import Dropdown from "../DropDown/Dropdown";
-import { CategoriesContext } from "../../contexts/categoryContext";
-import { UserContext } from "@/contexts/userContext";
-import useCookie from "../Hook/useCookie";
+import React from 'react';
+import Button from '../Button/Button';
+import Search from '../Search/Search';
+import style from './Header.module.css';
+import Link from 'next/link';
+import ButtonIcon from '../ButtonIcon/ButtonIcon';
+import Icon from '../Icon/Icon';
+import Dropdown from '../DropDown/Dropdown';
+import { CategoriesContext } from '../../contexts/categoryContext';
+import { UserContext } from '@/contexts/userContext';
+import UseCookie from '../Hook/useCookie';
 
 
 export default function Header() {
-  let [isSearch, setIsSearch] = React.useState("");
+  let [isSearch, setIsSearch] = React.useState('');
   let data = React.useContext(CategoriesContext);
-  let {user,setUser}= React.useContext(UserContext);
+  let {user, setUser}= React.useContext(UserContext);
   function click(){
-    useCookie('login','')
-    useCookie('token','')
-    setUser({})
+    UseCookie('login', '');
+    UseCookie('token', '');
+    setUser({});
   }
 
   function whatSearch(ev: string) {
@@ -30,7 +30,7 @@ export default function Header() {
       <div className={style.Header__left}>
         <div className="Header__logo">
           <Link href="/">
-            <Icon type={"logo"} />
+            <Icon type={'logo'} />
           </Link>
         </div>
         <div className={style.Header__border}></div>
@@ -58,7 +58,7 @@ export default function Header() {
               Курсы
             </Link>
             <span className={style.Header__dropdown_svg}>
-              <Icon type={"tick"} />
+              <Icon type={'tick'} />
             </span>
             <div
               className={`${style.Header__dropdownCourses} ${style.Header__dropdown}`}
@@ -66,7 +66,15 @@ export default function Header() {
               <Dropdown vertical={true} data={data} />
             </div>
           </div>
-          <div className={`${style.Header__nav} ${style.Pages}`}>
+          <div className={style.Header__nav}>
+            <Link
+              className={`${style.Header__link} ${style.Header__navElement}`}
+              href="/instructors"
+            >
+              Инструкторы
+            </Link>
+          </div>
+          {/* <div className={`${style.Header__nav} ${style.Pages}`}>
             <div className={style.Header__navElement}>Страницы</div>
             <span className={style.Header__dropdown_svg}>
               <Icon type={"tick"} />
@@ -76,7 +84,7 @@ export default function Header() {
             >
               <Dropdown data={[]} vertical={false} />
             </div>
-          </div>
+          </div> */}
           <div className={style.Header__nav}>
             <Link
               className={`${style.Header__link} ${style.Header__navElement}`}
@@ -88,8 +96,8 @@ export default function Header() {
         </div>
       </div>
       <div className={style.Header__right}>
-        <Search placeholder={"Введите запрос"} onChange={whatSearch} />
-        <ButtonIcon icontype={"cart"} iconHover={true} />
+        <Search placeholder={'Введите запрос'} onChange={whatSearch} />
+        <ButtonIcon icontype={'cart'} iconHover={true} />
         <div className={style.Header__border}></div>
         <div className={user.login===undefined?`${style.Header__enter}`:`${style.Header__enter} ${style.inactive}`}>
           <Link
@@ -102,14 +110,14 @@ export default function Header() {
             href="/signup"
             className={`${style.Header__link} ${style.Header__login}`}
           >
-            <Button radius={true} text={"Регистрация"} color={"blue"} />
+            <Button radius={true} text={'Регистрация'} color={'blue'} />
           </Link>
         </div>
         <div className={user.login!==undefined?`${style.Header__user}`:`${style.Header__user} ${style.inactive}`}>
             <div className={style.Header__userHello}>
               Привет {user.login}!
             </div>
-            <Button click={click} radius={true} text={"Выйти"} color={"blue"} />
+            <Button click={click} radius={true} text={'Выйти'} color={'blue'} />
         </div>
       </div>
     </div>

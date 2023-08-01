@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import style from "./Footer.module.css";
-import ColorBlock from "../ColorBlock/ColorBlock";
-import Container from "../Container/Container";
-import Link from "next/link";
-import Icon from "../Icon/Icon";
-import SearchBtn from "../SearchBtn/SearchBtn";
-import {CategoriesContext} from '../../contexts/categoryContext'
+import React, { useContext } from 'react';
+import style from './Footer.module.css';
+import ColorBlock from '../ColorBlock/ColorBlock';
+import Container from '../Container/Container';
+import Link from 'next/link';
+import Icon from '../Icon/Icon';
+import SearchBtn from '../SearchBtn/SearchBtn';
+import {CategoriesContext} from '../../contexts/categoryContext';
 
 export default function Footer() {
-  let [isEmail, setIsEmail] = React.useState("");
-  let data=useContext(CategoriesContext)
+  let [isEmail, setIsEmail] = React.useState('');
+  let data=useContext(CategoriesContext);
 
   // React.useEffect(() => {
   //   async function getFetch() {
@@ -26,8 +26,8 @@ export default function Footer() {
   // }, []);
 
   let arrayName=data.map((category:any)=>{
-          return category.name
-  })
+          return category.name;
+  });
 
   function whatEmail(ev: string) {
     setIsEmail(ev);
@@ -41,22 +41,22 @@ export default function Footer() {
     <Container>
       <div className={style.Footer__up}>
         <Link href="/">
-          <Icon type={"logoWhite"} />
+          <Icon type={'logoWhite'} />
         </Link>
         <div className={style.Footer__social}>
           <span className={style.Footer__socialText}>
-            {" "}
+            {' '}
             мы в социальных сетях
           </span>
           <div className={style.Footer__icons}>
             <span className={style.Footer__icon}>
-              <Icon type={"facebook"} />
+              <Icon type={'facebook'} />
             </span>
             <span className={style.Footer__icon}>
-              <Icon type={"insta"} />
+              <Icon type={'insta'} />
             </span>
             <span className={style.Footer__icon}>
-              <Icon type={"linkedin"} />
+              <Icon type={'linkedin'} />
             </span>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function Footer() {
         <div className={style.Footer__column}>
           <div className={style.Footer__info}>Категории</div>
           <div className={style.Footer__wrap}>
-            {data.length && new Array(2).fill("column").map((column, key) => {
+            {data.length && new Array(2).fill('column').map((column, key) => {
               let start = 0;
               if (key > 0) {
                 start = 7 * key;
@@ -86,7 +86,7 @@ export default function Footer() {
                   {arrayName.slice(start, 7 + start).map((elem, key) => {
                     return (
                       <div className={style.Footer__elem} key={key}>
-                        {elem}{" "}
+                        {elem}{' '}
                       </div>
                     );
                   })}
@@ -108,14 +108,14 @@ export default function Footer() {
         <div className={style.Footer__column}>
           <div className={style.Footer__info}>Остаемся на связи</div>
           <div className={`${style.Footer__elem} ${style.Footer__spam}`}>
-            {" "}
+            {' '}
             Мы не будем рассылать спам, не беспокойтесь
           </div>
           <SearchBtn
             onChange={whatEmail}
-            placeholder={"Email..."}
-            textBtn={"Отправить"}
-            colorBtn={"blue"}
+            placeholder={'Email...'}
+            textBtn={'Отправить'}
+            colorBtn={'blue'}
             smallBtn={true}
             radiusBtn={true}
           />

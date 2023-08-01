@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 export type User={
     user:{
       login?:string,
@@ -7,4 +7,4 @@ export type User={
     setUser:Function
   }
 
-export let UserContext=React.createContext<User>({user:{},setUser:()=>{}})
+export let UserContext=React.createContext<User>({user:{}, setUser:()=>{}});
