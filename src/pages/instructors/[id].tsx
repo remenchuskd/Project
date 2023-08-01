@@ -244,7 +244,7 @@ export default function Instructor(props: any) {
                       (comment: {
                         attributes: {
                           text: string;
-                          user: { attributes: { username: string } };
+                          user: {data:{ attributes: { username: string } }};
                         };
                       }, key: React.Key | null | undefined) => {
                         return (
