@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./Icon.module.css";
+import React from 'react';
+import styles from './Icon.module.css';
 
 type Props = {
   type: string;
@@ -9,11 +9,11 @@ type Props = {
 export default function Icon({ type, hoverable }: Props) {
   // (props: Props )
   let result;
-  let iconHoverableClass = hoverable ? styles.icon_hoverable : "";
-  let linkHoverableClass = hoverable ? styles.link_hoverable : "";
+  let iconHoverableClass = hoverable ? styles.icon_hoverable : '';
+  let linkHoverableClass = hoverable ? styles.link_hoverable : '';
 
   switch (type) {
-    case "cart":
+    case 'cart':
       result = (
         <span className={`${styles.icon} ${iconHoverableClass} `}>
           <svg
@@ -35,7 +35,7 @@ export default function Icon({ type, hoverable }: Props) {
         </span>
       );
       break;
-    case "search":
+    case 'search':
       result = (
         <span className={`${styles.icon} ${iconHoverableClass} `}>
           <svg
@@ -63,13 +63,13 @@ export default function Icon({ type, hoverable }: Props) {
         </span>
       );
       break;
-    case "like":
+    case 'like':
       result = <img src="icon-like.png" alt="like" />;
       break;
-    case "dislike":
+    case 'dislike':
       result = <img src="icon-dislike.png" alt="dislike" />;
       break;
-    case "tick-right":
+    case 'tick-right':
       result = (
         <svg
           width="5"
@@ -85,7 +85,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "tick":
+    case 'tick':
       result = (
         <svg
           className={styles.icon}
@@ -102,7 +102,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "tick-up":
+    case 'tick-up':
       result = (
         <svg
           width="12"
@@ -118,7 +118,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "tick-down":
+    case 'tick-down':
       result = (
         <svg
           width="13"
@@ -134,25 +134,25 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "logo":
+    case 'logo':
       result = <img src="/logo.png" alt="logo" />;
       break;
-    case "logoWhite":
+    case 'logoWhite':
       result = <img src="/logo_white.png" alt="logo" />;
       break;
-    case "logoWhite2":
+    case 'logoWhite2':
       result = <img src="/logo_white2.png" alt="logo" />;
       break;
-    case "facebook":
+    case 'facebook':
       result = <img src="/facebook.png" alt="logo" />;
       break;
-    case "insta":
+    case 'insta':
       result = <img src="/insta.png" alt="logo" />;
       break;
-    case "linkedin":
+    case 'linkedin':
       result = <img src="/linkedin.png" alt="logo" />;
       break;
-    case "link":
+    case 'link':
       result = (
         <svg
           className={`${styles.icon} ${linkHoverableClass} `}
@@ -181,7 +181,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "student":
+    case 'student':
       result = (
         <svg
           width="16"
@@ -197,7 +197,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "student_white":
+    case 'student_white':
       result = (
         <svg
           width="16"
@@ -217,7 +217,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "course":
+    case 'course':
       result = (
         <svg
           width="12"
@@ -233,7 +233,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "course_white":
+    case 'course_white':
       result = (
         <svg
           width="12"
@@ -249,7 +249,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "reviews_white":
+    case 'reviews_white':
       result = (
         <svg
           width="16"
@@ -265,7 +265,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "comment":
+    case 'comment':
       result = (
         <svg
           width="16"
@@ -281,7 +281,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "clock":
+    case 'clock':
       result = (
         <svg
           width="16"
@@ -308,7 +308,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "level":
+    case 'level':
       result = (
         <svg
           width="16"
@@ -339,7 +339,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "lesson":
+    case 'lesson':
       result = (
         <svg
           width="16"
@@ -374,7 +374,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "tick-circule":
+    case 'tick-circule':
       result = (
         <svg
           width="20"
@@ -391,7 +391,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "certificate":
+    case 'certificate':
       result = (
         <svg
           width="16"
@@ -411,7 +411,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "access":
+    case 'access':
       result = (
         <svg
           width="16"
@@ -442,7 +442,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "video":
+    case 'video':
       result = (
         <svg
           width="16"
@@ -462,7 +462,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "circule":
+    case 'circule':
       result = (
         <svg
           width="7"
@@ -475,7 +475,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "fb-blue":
+    case 'fb-blue':
       result = (
         <svg
           width="8"
@@ -491,7 +491,7 @@ export default function Icon({ type, hoverable }: Props) {
         </svg>
       );
       break;
-    case "google":
+    case 'google':
       result = (
         <svg
           width="14"

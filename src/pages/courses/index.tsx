@@ -1,23 +1,23 @@
-import React from "react";
-import Layout from "@/components/Layout/Layout";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
-import style from "./courses.module.css";
-import Container from "@/components/Container/Container";
-import Filter from "@/components/Filter/Filter";
-import Pagination from "@/components/Pagination/Pagination";
-import Sort from "@/components/Sort/Sort";
-import Card from "@/components/CardCourse/CardCourse";
-import ColorBlock from "@/components/ColorBlock/ColorBlock";
-import { CategoriesContext } from "@/contexts/categoryContext";
-import Link from "next/link";
+import React from 'react';
+import Layout from '@/components/Layout/Layout';
+import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
+import style from './courses.module.css';
+import Container from '@/components/Container/Container';
+import Filter from '@/components/Filter/Filter';
+import Pagination from '@/components/Pagination/Pagination';
+import Sort from '@/components/Sort/Sort';
+import Card from '@/components/CardCourse/CardCourse';
+import ColorBlock from '@/components/ColorBlock/ColorBlock';
+import { CategoriesContext } from '@/contexts/categoryContext';
+import Link from 'next/link';
 
 export async function getServerSideProps() {
-  let request = await fetch("http://localhost:3000/api/getCategories");
+  let request = await fetch('http://localhost:3000/api/getCategories');
   let request2 = await fetch(
-    "http://localhost:3000/api/getCourses?populate=channels&page=1"
+    'http://localhost:3000/api/getCourses?populate=channels&page=1'
   );
   let request3 = await fetch(
-    "http://localhost:3000/api/getInstructors?populate=courses&pageSize=100500"
+    'http://localhost:3000/api/getInstructors?populate=courses&pageSize=100500'
   );
   let [response, response2, response3] = await Promise.all([
     request,
@@ -57,17 +57,17 @@ export default function Courses(props: any) {
   let [params, setParams] = React.useState({
     pageSize: 12,
     currentPage: 1,
-    sort: "asc",
-    search: "",
-    filter: "",
-    categoryId: "",
+    sort: 'asc',
+    search: '',
+    filter: '',
+    categoryId: '',
   });
 
   React.useEffect(() => {
     async function getPage() {
       let response = await fetch(
         `http://localhost:3000/api/getCourses?populate=channels&sort=${
-          params.sort || "asc"
+          params.sort || 'asc'
         }&pageSize=${params.pageSize}&page=${params.currentPage}${param()}`
       );
       let data = await response.json();
@@ -83,26 +83,26 @@ export default function Courses(props: any) {
       newArr.push(`&instructorId=${filterInstrucor[i]}`);
     }
 
-    let instructor = newArr.join("");
+    let instructor = newArr.join('');
     for (let i = 0; i < filterCategory.length; i++) {
       newArr2.push(`&categoryId=${filterCategory[i]}`);
     }
 
-    let category = newArr2.join("");
+    let category = newArr2.join('');
     let result = instructor + category;
     return result;
   }
 
   function sortCards(item: any) {
-    if (item.includes("↑")) {
+    if (item.includes('↑')) {
       setParams((prev) => {
-        return { ...prev, sort: "asc", currentPage: 1 };
+        return { ...prev, sort: 'asc', currentPage: 1 };
       });
-    } else if (item.includes("↓")) {
+    } else if (item.includes('↓')) {
       setParams((prev) => {
         return {
           ...prev,
-          sort: "desc",
+          sort: 'desc',
           currentPage: 1,
         };
       });
@@ -112,13 +112,13 @@ export default function Courses(props: any) {
   return (
     <CategoriesContext.Provider value={props.categories}>
       <Layout>
-        <ColorBlock color={"lightblue"}>
+        <ColorBlock color={'lightblue'}>
           <Container>
             <div className={style.BreadCrumbs}>
               <BreadCrumbs
                 data={[
-                  { text: "Hello", link: "/" },
-                  { text: "All courses", link: "/courses" },
+                  { text: 'Hello', link: '/' },
+                  { text: 'All courses', link: '/courses' },
                 ]}
               />
             </div>
@@ -130,7 +130,7 @@ export default function Courses(props: any) {
             <div className={style.Courses__sidebar}>
               <div className={style.Courses__filter}>
                 <Filter
-                  type={"checkbox"}
+                  type={'checkbox'}
                   setId={(num: number) => {
                     if (!filterInstrucor.includes(num)) {
                       //@ts-ignore
@@ -144,22 +144,22 @@ export default function Courses(props: any) {
                       });
                     }
                   }}
-                  title={"Автор"}
-                  elements={"instructors"}
+                  title={'Автор'}
+                  elements={'instructors'}
                   data={instructors}
                 />
               </div>
               <div className={style.Courses__filter}>
                 <Filter
-                  type={"checkbox"}
+                  type={'checkbox'}
                   setId={(num: number) =>
                     //@ts-ignore
                     setFilterCategory((prev) => {
                       return [...prev, num];
                     })
                   }
-                  title={"Категории"}
-                  elements={"categories"}
+                  title={'Категории'}
+                  elements={'categories'}
                   data={categories}
                 />
               </div>
@@ -167,13 +167,13 @@ export default function Courses(props: any) {
             <div className={style.Courses__cards}>
               <div className={style.Courses__top}>
                 <div className={style.Courses__total}>
-                  Всего{" "}
+                  Всего{' '}
                   <span className={style.Courses__total_res}>
                     {data.meta?.pagination.total}
-                  </span>{" "}
+                  </span>{' '}
                   результатов
                 </div>
-                <Sort onChange={sortCards} data={["А-Я ↑", "Я-А ↓"]} />
+                <Sort onChange={sortCards} data={['А-Я ↑', 'Я-А ↓']} />
               </div>
               <div className={style.Courses__cardslist}>
                 {data.data.map(

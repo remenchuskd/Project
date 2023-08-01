@@ -1,14 +1,14 @@
-import React from "react";
-import style from "./Dropdown.module.css";
-import Icon from "../Icon/Icon";
-import Link from "next/link";
+import React from 'react';
+import style from './Dropdown.module.css';
+import Icon from '../Icon/Icon';
+import Link from 'next/link';
 type Props = {
   vertical?: boolean;
   data: any[];
 };
 
 export default function Dropdown({ vertical, data }: Props) {
-  let Vertical = vertical ? style.vertical : "";
+  let Vertical = vertical ? style.vertical : '';
   let [id, setId] = React.useState();
 
   return (
@@ -26,7 +26,7 @@ export default function Dropdown({ vertical, data }: Props) {
               {column.attributes.name_ru}
             </div>
             <span className={`${style.Dropdown__column_svg} ${Vertical}`}>
-              <Icon type={"tick-right"} hoverable={true} />
+              <Icon type={'tick-right'} hoverable={true} />
             </span>
             <div className={`${style.Dropdown__allLinks} ${Vertical}`}>
               {id &&

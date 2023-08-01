@@ -1,9 +1,9 @@
-import React from "react";
-import style from "./InstructorCard.module.css";
-import Link from "next/link";
-import Icon from "../Icon/Icon";
-import Rating from "../Rating/Rating";
-import Star from "../Stars/Stars";
+import React from 'react';
+import style from './InstructorCard.module.css';
+import Link from 'next/link';
+import Icon from '../Icon/Icon';
+import Rating from '../Rating/Rating';
+import Star from '../Stars/Stars';
 type Props = {
   id: number;
   instructor: string;
@@ -22,7 +22,7 @@ export default function InstructorCard({
   course,
   outlined,
 }: Props) {
-  let InstructorOutlinedClass = outlined ? style.Instructor_outlined : "";
+  let InstructorOutlinedClass = outlined ? style.Instructor_outlined : '';
 
   return (
     <div className={`${style.Instructor} ${InstructorOutlinedClass} `}>
@@ -35,13 +35,13 @@ export default function InstructorCard({
         <div className={style.Instructor__wrap}>
           <div className={style.Instructor__social}>
             <Link className={style.Instructor__icon} href="">
-              <Icon type={"facebook"} />
+              <Icon type={'facebook'} />
             </Link>
             <Link className={style.Instructor__icon} href="">
-              <Icon type={"insta"} />
+              <Icon type={'insta'} />
             </Link>
             <Link className={style.Instructor__icon} href="">
-              <Icon type={"linkedin"} />
+              <Icon type={'linkedin'} />
             </Link>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function InstructorCard({
 
         <div className={style.Instructor__elem}>
           <span className={style.Instructor__svg}>
-            <Icon type={"course"} />
+            <Icon type={'course'} />
           </span>
           {course} Курсы
         </div>

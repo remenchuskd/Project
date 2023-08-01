@@ -1,5 +1,5 @@
-import React from "react";
-import style from "./Textarea.module.css";
+import React from 'react';
+import style from './Textarea.module.css';
 type props = {
   label: string;
   name: string;
@@ -15,7 +15,7 @@ export default function Textarea({
   setText,
   text,
 }: props) {
-  let [value, setValue] = React.useState("");
+  let [value, setValue] = React.useState('');
 
   React.useEffect(() => {
     if (text !== undefined) {

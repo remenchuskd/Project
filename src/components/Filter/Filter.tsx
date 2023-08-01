@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import style from "./Filter.module.css";
-import Icon from "../Icon/Icon";
-import Checkbox from "../Checkbox/Checkbox";
-import Radiobox from "../Radiobox/Radio";
-import Star from "../Stars/Stars";
+import React, { useState } from 'react';
+import style from './Filter.module.css';
+import Icon from '../Icon/Icon';
+import Checkbox from '../Checkbox/Checkbox';
+import Radiobox from '../Radiobox/Radio';
+import Star from '../Stars/Stars';
 type props = {
   title: string;
   type: string;
@@ -32,7 +32,7 @@ function FilterBox({
 }: filterboxProps) {
   let result;
   switch (type) {
-    case "checkbox":
+    case 'checkbox':
       result = (
         <Checkbox
           checked={activeCheckbox.includes(index)}
@@ -43,8 +43,8 @@ function FilterBox({
         />
       );
       break;
-    case "radiobox":
-      result = <Radiobox name={"title"} index={key} onChange={onChange} />;
+    case 'radiobox':
+      result = <Radiobox name={'title'} index={key} onChange={onChange} />;
       break;
   }
 
@@ -66,11 +66,11 @@ export default function Filter({
   let [filterData, setFilterdata] = React.useState(data);
 
   React.useEffect(() => {
-    if (elements === "instructors") {
+    if (elements === 'instructors') {
       let arr: any[] = [];
       let newdata=data.filter(item=>{
-        return item.attributes.courses.data.length>0
-      })
+        return item.attributes.courses.data.length>0;
+      });
       newdata.forEach((item: any) => {
         arr.push({
           id: item.id,
@@ -131,7 +131,7 @@ export default function Filter({
     <div className={style.Filter}>
       <div onClick={Dropdown} className={style.Filter__info}>
         <div className={style.Filter__title}>{title}</div>
-        {isOpen ? <Icon type={"tick-up"} /> : <Icon type={"tick-down"} />}
+        {isOpen ? <Icon type={'tick-up'} /> : <Icon type={'tick-down'} />}
       </div>
       {isOpen ? (
         <div>
@@ -142,9 +142,9 @@ export default function Filter({
                 : `${style.Filter__descr} ${style.active}`
             }
           >
-            {elements == "instructors" &&
+            {elements == 'instructors' &&
               filterData.slice(0, limit).map((item, key) => {
-                console.log(filterData)
+                console.log(filterData);
                 return (
                   <div key={key} className={style.Filter__wrap}>
                     <div className={style.Filter__elem}>
@@ -164,11 +164,11 @@ export default function Filter({
                             : style.Filter__rate
                         }
                       >
-                        {" "}
+                        {' '}
                         <Star size="small" qnty={5} />
                       </span>
                       <span className={style.Filter__name}>
-                        {item.name_ru}{" "}
+                        {item.name_ru}{' '}
                       </span>
                     </div>
                     <div
@@ -177,7 +177,7 @@ export default function Filter({
                   </div>
                 );
               })}
-            {elements === "categories" &&
+            {elements === 'categories' &&
               filterData.slice(0, limit).map((item, key) => {
                 return (
                   <div key={key} className={style.Filter__wrap}>
@@ -198,11 +198,11 @@ export default function Filter({
                             : style.Filter__rate
                         }
                       >
-                        {" "}
+                        {' '}
                         <Star size="small" qnty={5} />
                       </span>
                       <span className={style.Filter__name}>
-                        {item.attributes.name_ru}{" "}
+                        {item.attributes.name_ru}{' '}
                       </span>
                     </div>
                   </div>
@@ -220,7 +220,7 @@ export default function Filter({
           )}
         </div>
       ) : (
-        ""
+        ''
       )}
     </div>
   );

@@ -1,20 +1,20 @@
-import React from "react";
-import Layout from "@/components/Layout/Layout";
+import React from 'react';
+import Layout from '@/components/Layout/Layout';
 // import Button from "@/components/Button/Button";
-import Icon from "@/components/Icon/Icon";
-import Tab from "@/components/Tabs/Tabs";
-import Tabpanel from "@/components/Tabpanel/Tabpanel";
-import Card from "@/components/CardCourse/CardCourse";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
-import ColorBlock from "@/components/ColorBlock/ColorBlock";
-import Container from "@/components/Container/Container";
-import Rating from "@/components/Rating/Rating";
-import Star from "@/components/Stars/Stars";
-import style from "./instructor.module.css";
-import { CategoriesContext } from "@/contexts/categoryContext";
-import { useRouter } from "next/router";
-import Textarea from "@/components/Textarea/Textarea";
-import { Button, Loading } from "@nextui-org/react";
+import Icon from '@/components/Icon/Icon';
+import Tab from '@/components/Tabs/Tabs';
+import Tabpanel from '@/components/Tabpanel/Tabpanel';
+import Card from '@/components/CardCourse/CardCourse';
+import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
+import ColorBlock from '@/components/ColorBlock/ColorBlock';
+import Container from '@/components/Container/Container';
+import Rating from '@/components/Rating/Rating';
+import Star from '@/components/Stars/Stars';
+import style from './instructor.module.css';
+import { CategoriesContext } from '@/contexts/categoryContext';
+import { useRouter } from 'next/router';
+import Textarea from '@/components/Textarea/Textarea';
+import { Button, Loading } from '@nextui-org/react';
 type Data = {
   attributes?: { description: string; courses: {} };
 };
@@ -26,7 +26,7 @@ type User = {
 };
 export async function getServerSideProps(context: any) {
   let id = context.query.id;
-  let request = await fetch("http://localhost:3000/api/getCategories");
+  let request = await fetch('http://localhost:3000/api/getCategories');
   let request2 = await fetch(
     `http://localhost:3000/api/getInstructors?populate=courses&id=${id}`
   );
@@ -57,19 +57,19 @@ export default function Instructor(props: any) {
   let ref = React.useRef(null);
   let [user, setUser] = React.useState<User>();
   let [cookie, setCookie] = React.useState(
-    isBrowser() ? window.document.cookie : ""
+    isBrowser() ? window.document.cookie : ''
   );
   let [activeButton, setActiveButton] = React.useState(true);
   let [resetComment, setResetComment] = React.useState(false);
-  let [review, setReview] = React.useState("");
+  let [review, setReview] = React.useState('');
 
   React.useEffect(() => {
     let objCookie = {};
     // @ts-ignore
     cookie
-      .split("; ")
+      .split('; ')
       .map((item) => {
-        return item.split("=");
+        return item.split('=');
       }) // @ts-ignore
       .forEach((arr) => (objCookie[arr[0]] = arr[1]));
     // @ts-ignore
@@ -80,16 +80,16 @@ export default function Instructor(props: any) {
     if (ref.current) {
       if (hide === true) {
         // @ts-ignore
-        ref.current.style.height = 260 + "px";
+        ref.current.style.height = 260 + 'px';
       } else {
         // @ts-ignore
-        ref.current.style.height = 100 + "%";
+        ref.current.style.height = 100 + '%';
       }
     }
   }, [hide]);
 
   function isBrowser() {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       return true;
     } else {
       return false;
@@ -108,8 +108,8 @@ export default function Instructor(props: any) {
     setActiveButton(false);
     setResetComment(true);
     async function comments() {
-      let request = await fetch(`http://localhost:3000/api/postComments`, {
-        method: "POST",
+      let request = await fetch('http://localhost:3000/api/postComments', {
+        method: 'POST',
         body: JSON.stringify({
           user: `${user.id}`,
           text: `${review}`,
@@ -134,13 +134,13 @@ export default function Instructor(props: any) {
   return (
     <CategoriesContext.Provider value={props.categories}>
       <Layout>
-        <ColorBlock color={"lightblue"}>
+        <ColorBlock color={'lightblue'}>
           <Container>
-            <BreadCrumbs data={["Crumb", "Crumb", "Crumb", "Crumb"]} />
+            <BreadCrumbs data={['Crumb', 'Crumb', 'Crumb', 'Crumb']} />
           </Container>
         </ColorBlock>
         <div className={style.Instructor}>
-          <ColorBlock color={"blue"}>
+          <ColorBlock color={'blue'}>
             <div className={style.Container}>
               <div className={style.Instructor__card}>
                 <div className={style.Instructor__img}></div>
@@ -151,45 +151,45 @@ export default function Instructor(props: any) {
                   <div className={style.Instructor__prof}></div>
                   <div className={style.Instructor__info}>
                     <div className={style.Instructor__item}>
-                      <Star size={"big"} qnty={1} />
+                      <Star size={'big'} qnty={1} />
                       <span className={style.Instructor__infoelem}>
                         <Rating rating={4.5} />
-                      </span>{" "}
+                      </span>{' '}
                       Рейтинг инструктора
                     </div>
                     <div className={style.Instructor__item}>
                       <span className={style.Instructor__infoelem}>
-                        <Icon type={"reviews_white"} />{" "}
+                        <Icon type={'reviews_white'} />{' '}
                       </span>
                       {} Отзывы
                     </div>
 
                     <div className={style.Instructor__item}>
                       <span className={style.Instructor__infoelem}>
-                        <Icon type={"student_white"} />{" "}
-                      </span>{" "}
+                        <Icon type={'student_white'} />{' '}
+                      </span>{' '}
                       {} Студента
                     </div>
                     <div className={style.Instructor__item}>
                       <span className={style.Instructor__infoelem}>
-                        <Icon type={"course_white"} />{" "}
+                        <Icon type={'course_white'} />{' '}
                       </span>
                       {data.data[0].attributes.courses.data.length} Курс
                     </div>
                   </div>
                   <div className={style.Instructor__wrap}>
                     <button className={style.Instructor__btn}>
-                      Отправить сообщение{" "}
+                      Отправить сообщение{' '}
                     </button>
                     <div className={style.Instructor__media}>
                       <span className={style.Instructor__social}>
-                        <Icon type={"facebook"} />
+                        <Icon type={'facebook'} />
                       </span>
                       <span className={style.Instructor__social}>
-                        <Icon type={"insta"} />
+                        <Icon type={'insta'} />
                       </span>
                       <span className={style.Instructor__social}>
-                        <Icon type={"linkedin"} />
+                        <Icon type={'linkedin'} />
                       </span>
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export default function Instructor(props: any) {
           </ColorBlock>
         </div>
         <div className={style.Container}>
-          <Tab title={["Описание", "Курсы", "Отзывы"]}>
+          <Tab title={['Описание', 'Курсы', 'Отзывы']}>
             <Tabpanel>
               <div className={style.Instructor__tab}>
                 <div className={style.Instructor__h2}>Описание</div>
@@ -207,8 +207,8 @@ export default function Instructor(props: any) {
                   {data.data[0].attributes.description}
                 </div>
                 <div onClick={hidden} className={style.Instructor__showMore}>
-                  {" "}
-                  {hide ? "Показать еще" : "Показать меньше"}
+                  {' '}
+                  {hide ? 'Показать еще' : 'Показать меньше'}
                 </div>
               </div>
             </Tabpanel>
@@ -220,9 +220,9 @@ export default function Instructor(props: any) {
                     // @ts-ignore
                     data.data[0].attributes.courses.data.map((card, key) => {
                       return (
-                        <div className={style.Instructor__coursesCards}>
+                        <div key={key} className={style.Instructor__coursesCards}>
                           <Card
-                            size={"large"}
+                            size={'large'}
                             image={card.attributes.ch_image}
                             id={card.id}
                             text={card.attributes.name_ru}
@@ -246,11 +246,11 @@ export default function Instructor(props: any) {
                           text: string;
                           user: { attributes: { username: string } };
                         };
-                      }) => {
+                      }, key: React.Key | null | undefined) => {
                         return (
-                          <div>
+                          <div key={key}>
                             <div className={style.Instructor__commentUser}>
-                              Студент{" "}
+                              Студент{' '}
                               {comment.attributes.user.data.attributes.username}
                             </div>
                             <div
@@ -259,7 +259,7 @@ export default function Instructor(props: any) {
                               Инструктор {data.data[0].attributes.name_ru}
                             </div>
                             <div className={style.Instructor__comment}>
-                              {" "}
+                              {' '}
                               Отзыв: {comment.attributes.text}
                             </div>
                           </div>
@@ -269,11 +269,11 @@ export default function Instructor(props: any) {
                 </div>
                 <div className={style.Instructor__h2}>Написать отзыв</div>
                 <Textarea
-                  label={""}
-                  name={"отзывы"}
-                  placeholder={"Оставьте свой отзыв"}
+                  label={''}
+                  name={'отзывы'}
+                  placeholder={'Оставьте свой отзыв'}
                   setText={setReview}
-                  text={resetComment ? "" : undefined}
+                  text={resetComment ? '' : undefined}
                 />
                 <Button
                   disabled={!activeButton ? true : false}
@@ -282,7 +282,7 @@ export default function Instructor(props: any) {
                   size="md"
                 >
                   {activeButton ? (
-                    "Отправить"
+                    'Отправить'
                   ) : (
                     <Loading type="spinner" color="currentColor" size="md" />
                   )}

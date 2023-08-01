@@ -24,7 +24,7 @@ export default function Button({
 
   function Buttonclick(){
     if(click){
-      click()
+      click();
     }
   }
 

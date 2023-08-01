@@ -1,5 +1,5 @@
 
-export default function useCookie(name, value) {
+export default function UseCookie(name, value) {
 
   if (value === "") {
     document.cookie = `${name}=${value};Max-Age=0`;

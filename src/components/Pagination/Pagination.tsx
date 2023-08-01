@@ -1,6 +1,6 @@
-import React from "react";
-import style from "./Pagination.module.css";
-import usePagination from "../Hook/usePagiantion";
+import React from 'react';
+import style from './Pagination.module.css';
+import usePagination from '../Hook/usePagiantion';
 type props = {
   totalCount: number;
   pageSize: number;
@@ -24,13 +24,13 @@ export default function Pagination({
     siblingCount,
     currentPage,
   });
-  let DOTS = "...";
+  let DOTS = '...';
   let pageCount = Math.ceil(totalCount / pageSize);
 
   function onPrev() {
     if (currentPage !== 1) {
       setCurrentPage(currentPage - 1);
-      disabledBtnClass = "";
+      disabledBtnClass = '';
     }
   }
 

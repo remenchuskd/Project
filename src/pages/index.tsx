@@ -1,22 +1,22 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "@/styles/Home.module.css";
-import Button from "@/components/Button/Button";
-import Search from "@/components/Search/Search";
-import Header from "@/components/Header/Header";
-import React from "react";
-import Promo from "@/components/Promo/Promo";
-import CoursesCard from "@/components/AllCourses/CoursesCard";
-import Layout from "@/components/Layout/Layout";
-import CategoriesTop from "@/components/CategoriesTop/CategoriesTOP";
-import InstructorsTop from "@/components/InstructorsTop/InstructorsTop";
-import Presenation from "@/components/Presenation/Presenation";
-import { CategoriesContext } from "@/contexts/categoryContext";
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '@/styles/Home.module.css';
+import Button from '@/components/Button/Button';
+import Search from '@/components/Search/Search';
+import Header from '@/components/Header/Header';
+import React from 'react';
+import Promo from '@/components/Promo/Promo';
+import CoursesCard from '@/components/AllCourses/CoursesCard';
+import Layout from '@/components/Layout/Layout';
+import CategoriesTop from '@/components/CategoriesTop/CategoriesTOP';
+import InstructorsTop from '@/components/InstructorsTop/InstructorsTop';
+import Presenation from '@/components/Presenation/Presenation';
+import { CategoriesContext } from '@/contexts/categoryContext';
 
 export async function getServerSideProps() {
-  let request = await fetch("http://localhost:3000/api/getCategories");
+  let request = await fetch('http://localhost:3000/api/getCategories');
   let request2 = await fetch(
-    "http://localhost:3000/api/getInstructors?pageSize=100000&populate=courses"
+    'http://localhost:3000/api/getInstructors?pageSize=100000&populate=courses'
   );
   let [response, response2] = await Promise.all([request, request2]);
   let instructors = await response2.json();
@@ -53,7 +53,7 @@ console.log(array);
 }
 
 export default function Home(props: any) {
-  let [isSearch, setIsSearch] = React.useState("");
+  let [isSearch, setIsSearch] = React.useState('');
 
   function whatSearch(ev: string) {
     setIsSearch(ev);

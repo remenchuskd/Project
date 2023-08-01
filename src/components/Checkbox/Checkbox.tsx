@@ -9,7 +9,7 @@ type props = {
   index:number,
 };
 
-export default function Checkbox({  size, checked, index,onClick,id, onChange}: props) {
+export default function Checkbox({  size, checked, index, onClick, id, onChange}: props) {
   return (
     <div className={style.CheckBox}>
       <input

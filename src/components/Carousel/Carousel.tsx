@@ -1,7 +1,7 @@
-import React from "react";
-import style from "./Carousel.module.css";
-import Card from "../CardCategory/CardCategory";
-import flattenChildren from "react-flatten-children";
+import React from 'react';
+import style from './Carousel.module.css';
+import Card from '../CardCategory/CardCategory';
+import flattenChildren from 'react-flatten-children';
 type props = {
   data: any[];
   children: any;
