@@ -18,6 +18,7 @@ export default function Carousel({ children, data, width }: props) {
 
   React.useEffect(() => {
     if (ref.current) {
+      // @ts-ignore
       setPageSize(Math.round(ref.current.offsetWidth / width));
       setCards(pageSize);
     }
@@ -28,6 +29,7 @@ export default function Carousel({ children, data, width }: props) {
 
   React.useEffect(() => {
     if (ref.current) {
+      // @ts-ignore
       ref.current.style.left = `${isMove}px`;
     }
   }, [isMove]);
