@@ -138,7 +138,6 @@ export default function CoursesCard() {
                 level={card.level}
                 author={card.author}
                 price={card.price}
-                rating={card.rating}
                 qnty={card.qnty}
                 tag={card.tag}
               />
