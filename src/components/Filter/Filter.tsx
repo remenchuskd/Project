@@ -44,7 +44,7 @@ function FilterBox({
       );
       break;
     case 'radiobox':
-      result = <Radiobox name={'title'} index={key} onChange={onChange} />;
+      result = <Radiobox name={'title'} index={index} onChange={onChange} />;
       break;
   }
 

@@ -7,20 +7,21 @@ import Button from '@/components/Button/Button';
 import Link from 'next/link';
 import { CategoriesContext } from '@/contexts/categoryContext';
 
-export async function getServerSideProps() {
-  let response = await fetch('http://localhost:3000/api/getCategories');
-  let categories = await response.json();
+// export async function getServerSideProps() {
+//   let response = await fetch('http://localhost:3000/api/getCategories');
+//   let categories = await response.json();
 
-  return {
-    props: {
-      categories: categories,
-    },
-  };
-}
+//   return {
+//     props: {
+//       categories: categories,
+//     },
+//   };
+// }
 
-export default function Error404() {
+export default function Error404(props:any) {
+
   return (
-    <CategoriesContext.Provider value={props.categories}>
+    <CategoriesContext.Provider value={[]}>
       <Layout>
         <ColorBlock color={'yellow'}>
           <Container>
