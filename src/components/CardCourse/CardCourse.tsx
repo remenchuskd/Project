@@ -1,10 +1,10 @@
-import React from "react";
-import style from "./CardCourse.module.css";
-import Rating from "../Rating/Rating";
-import Tag from "../Tag/Tag";
-import Icon from "../Icon/Icon";
-import Star from "../Stars/Stars";
-import Review from "../Review/Review";
+import React from 'react';
+import style from './CardCourse.module.css';
+import Rating from '../Rating/Rating';
+import Tag from '../Tag/Tag';
+import Icon from '../Icon/Icon';
+import Star from '../Stars/Stars';
+import Review from '../Review/Review';
 type Props = {
   image?: string;
   id: number;
@@ -43,14 +43,14 @@ export default function CardCourse({
   let CardWidth;
 
   switch (size) {
-    case "large":
-      CardWidth = style["large"];
+    case 'large':
+      CardWidth = style['large'];
       break;
-    case "small":
-      CardWidth = style["small"];
+    case 'small':
+      CardWidth = style['small'];
       break;
     default:
-      CardWidth = style["small"];
+      CardWidth = style['small'];
       break;
   }
 
@@ -62,12 +62,12 @@ export default function CardCourse({
       >
         {tag ? (
           <div className={style.Card__tag}>
-            {new Array(tag.length).fill("tag").map((tags, key) => {
+            {new Array(tag.length).fill('tag').map((tags, key) => {
               return <Tag key={key} type={tag[key]} />;
             })}
           </div>
         ) : (
-          ""
+          ''
         )}
       </div>
       <div className={style.Card__descr}>
